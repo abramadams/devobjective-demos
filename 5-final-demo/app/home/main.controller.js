@@ -14,9 +14,10 @@
 		var vm = this;
 
 		// Exports
-		vm.title = "Precious Collectibles";
+		vm.title = "Precious Collectibles".split( '' );
+		console.log( vm.title );
 		vm.tagline = "One Page to rule them all, One Service to find them, One Controller to bring them all and in the darkness bind them";
-
+		vm.getFireBurn = getFireBurn;
 		///////////////////////////////////////////////////////////////////
 		// IMPLEMENTATION DETAILS
 		///////////////////////////////////////////////////////////////////
@@ -47,6 +48,10 @@
 					vm.items = items;
 
 				} );
+		}
+
+		function getFireBurn( index ){
+			return index % 2 ? 'burn' : 'fire';
 		}
 
 	}

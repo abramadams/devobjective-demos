@@ -74,7 +74,7 @@
 	             } ] )
 		.run( [ '$rootScope', '$state', '$stateParams', 'cartService',
 	          function( $rootScope, $state, $stateParams, cartService ){
-		          //this solves page refresh and getting back to state
+		          //simple toggle for mobile nav
 		          $rootScope.isCollapsed = true;
 		          //Load cart
 		          cartService.init( 'devObjectiveDemo' );
