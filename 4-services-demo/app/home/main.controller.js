@@ -6,9 +6,9 @@
 		.controller( 'MainController', MainController );
 
 	//Injects dependencies (since controller not registered with IIFE)
-	MainController.$inject = [ '$q', 'DataService' ];
+	MainController.$inject = [ '$q', 'dataService' ];
 
-	function MainController( $q, DataService ){
+	function MainController( $q, dataService ){
 
 		// hang all "$scope" type stuff off of vm (view model)
 		var vm = this;
@@ -37,7 +37,7 @@
 		function getAwesomeThings(){
 			//Should be pulling this from a service
 			var awesomeThings = [];
-			DataService.getAwesomeThings()
+			dataService.getAwesomeThings()
 				.then( function( response ){
 					awesomeThings = response.data;
 					awesomeThings.map( function( awesomeThing ){

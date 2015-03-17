@@ -8,12 +8,15 @@
 
 <input type="text" ng-model="vm.name">
 <button ng-click="vm.addItem()">Add</button>
+
 <ul>
     <li ng-repeat="item in vm.items">{{item.name}}
         <button ng-click="vm.removeItem($index)">Delete</button>
     </li>
 </ul>
 
+
+<!--3rd party libs-->
 <script src="angular/angular.min.js"></script>
 <!--App module-->
 <script src="index.js"></script>

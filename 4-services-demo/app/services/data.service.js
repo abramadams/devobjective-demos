@@ -3,11 +3,11 @@
 
 	//Registers controller with "app"
 	angular.module( 'app.dataservice', [] )
-		.factory( 'DataService', DataService );
+		.factory( 'dataService', dataService );
 	//Injects dependencies (since controller not registered with IIFE)
-	DataService.$inject = [ '$http' ];
+	dataService.$inject = [ '$http' ];
 
-	function DataService( $http ){
+	function dataService( $http ){
 		return {
 			getAwesomeThings: getAwesomeThings,
 			getItems: getItems

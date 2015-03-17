@@ -6,9 +6,9 @@
 		.controller( 'ItemsController', ItemsController );
 
 	//Injects dependencies (since controller not registered with IIFE)
-	ItemsController.$inject = [ '$q', 'DataService' ];
+	ItemsController.$inject = [ '$q', 'dataService' ];
 
-	function ItemsController( $q, DataService ){
+	function ItemsController( $q, dataService ){
 
 		// hang all "$scope" type stuff off of vm (view model)
 		var vm = this;
@@ -38,7 +38,7 @@
 		}
 
 		function getItems(){
-			DataService.getItems()
+			dataService.getItems()
 				.then( function( response ){
 					vm.items = response.data;
 				} );
