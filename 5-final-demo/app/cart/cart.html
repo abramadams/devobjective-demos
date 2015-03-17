@@ -24,6 +24,7 @@
                 </div>
             </div>
         </div>
+
         <div ng-if="vm.cart.length">
             <div class="row">
                 <ul class="list-group">
@@ -59,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    Cart Total: {{cartTotal | currency : '$'}}
+                    Cart Total: {{vm.cartTotal | currency : '$'}}
                     <a ng-click="vm.emptyCart()" class="btn btn-danger btn-xs pull-right">
                         Empty Cart
                         <span class="glyphicon glyphicon-trash"></span>

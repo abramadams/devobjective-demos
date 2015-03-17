@@ -15,7 +15,7 @@
 
 		// Exports
 		vm.title = "Precious Collectibles";
-		vm.tagline = "One Page to Rule them All";
+		vm.tagline = "One Page to rule them all, One Service to find them, One Controller to bring them all and in the darkness bind them";
 
 		///////////////////////////////////////////////////////////////////
 		// IMPLEMENTATION DETAILS

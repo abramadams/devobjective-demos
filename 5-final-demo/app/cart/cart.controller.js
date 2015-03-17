@@ -14,7 +14,7 @@
 
 		// Exports.
 		vm.cart = [];
-
+		vm.cartTotal = parseFloat( cartService.cartTotal() );
 		vm.updateQuantity = updateQuantity;
 		vm.removeItem = removeItem;
 		vm.checkout = checkout;

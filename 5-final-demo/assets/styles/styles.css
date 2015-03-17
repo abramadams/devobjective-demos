@@ -3,11 +3,34 @@
 }
 
 .thumbnail img.pull-left {
-    width: 150px;
+    width: 121px;
+}
+
+.thumbnail img.pull-right {
+    max-height: 150px;
 }
 
 .divider {
     padding: 10px;
+}
+
+body {
+    background-color: #000;
+    font-family: 'ringbearermedium';
+}
+
+a {
+    color: #580A01;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #580A01;
+    text-shadow: 0 0 20px #22211F, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+}
+
+h2 {
+    color: #9D9D9D;
 }
 
 .jumbotron {
@@ -18,5 +41,58 @@
     background-position-x: -104px;
     background-position-y: -48px;
     color: #71211E;
+}
 
+.jumbotron h1, .jumbotron .lead, .jumbotron p {
+    margin-left: 300px;
+}
+
+.jumbotron h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 0 20px #22211F, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+}
+
+@font-face {
+    font-family: 'ringbearermedium';
+    src: url('../fonts/RINGM___-webfont.eot');
+    src: url('../fonts/RINGM___-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/RINGM___-webfont.woff2') format('woff2'),
+    url('../fonts/RINGM___-webfont.woff') format('woff'),
+    url('../fonts/RINGM___-webfont.ttf') format('truetype'),
+    url('../fonts/RINGM___-webfont.svg#ringbearermedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.navbar-inverse {
+    background-color: #580A01;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #580A01;
+    border-color: #d43f3a;
+}
+
+.panel-default > .panel-heading {
+    color: #9D9D9D;
+    background-color: #580A01;
+    border-color: #9D9D9D;
+}
+
+.panel-body {
+    padding: 15px;
+    background: #302E28;
+    color: #9D9D9D;
+}
+
+.bg-reverse {
+    color: #580A01;
+    text-align: center;
+}
+
+.img-thumbnail {
+    border: none;
 }
