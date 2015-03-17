@@ -67,6 +67,7 @@
                  $urlRouterProvider.otherwise( '/' );
 
                } ] )
+
     .run( [ '$rootScope', '$state', '$stateParams', 'CartService',
             function( $rootScope, $state, $stateParams, CartService ){
               //this solves page refresh and getting back to state
