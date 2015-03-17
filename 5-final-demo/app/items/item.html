@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <label>Price</label>
 
-                        <p>{{ vm.items.price * vm.items.quantity | currency : '$' }}</p>
+                        <p class="price">{{ vm.items.price * vm.items.quantity | currency : '$' }}</p>
                     </div>
                     <button class="btn btn-success btn-block" ng-click="vm.addToCart()">
                         {{ vm.addButtonText }}

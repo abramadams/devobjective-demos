@@ -4,6 +4,7 @@
 	angular.module( 'app', [
 		/* Angular & 3rd Party modules */
 		'ui.router',
+		'ui.bootstrap',
 		'angularLocalStorage',
 		'ngSanitize',
 		'angularPayments',
@@ -74,7 +75,7 @@
 		.run( [ '$rootScope', '$state', '$stateParams', 'cartService',
 	          function( $rootScope, $state, $stateParams, cartService ){
 		          //this solves page refresh and getting back to state
-
+		          $rootScope.isCollapsed = true;
 		          //Load cart
 		          cartService.init( 'devObjectiveDemo' );
 
