@@ -22,11 +22,13 @@ body {
 a {
     color: #580A01;
     text-decoration: none;
+    transition: text-shadow 0.5s ease-out;
 }
 
 a:hover {
     color: #580A01;
-    text-shadow: 0 0 20px #22211F, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+    text-shadow: 0 0 14px #E8D7B9, 1px 25px 18px #feec85, 5px -20px 17px #ffae34, -18px -12px 35px #ec760c, 11px 0px 54px #cd4606, 0 0 9px #973716, 10px 0px 80px #451b0e;
+    transition: text-shadow 0.5s ease;
 }
 
 h2 {
@@ -34,17 +36,13 @@ h2 {
 }
 
 .jumbotron {
-    background-image: url('../../assets/images/lotr-bg.jpg');
-    background-repeat: no-repeat;
-    background-size: 485px;
-    background-color: black;
-    background-position-x: -104px;
-    background-position-y: -48px;
-    color: #71211E;
+    background: url('../../assets/images/lotr-bg.jpg') no-repeat black -104px -48px;
+    color: #BE7521;
 }
 
 .jumbotron h1, .jumbotron .lead, .jumbotron p {
     margin-left: 300px;
+    text-shadow: 1px 1px 11px rgba(255, 160, 53, 1);
 }
 
 .jumbotron h1 {
