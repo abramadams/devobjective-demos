@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- load bootstrap -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <!--custom styles-->
+    <link rel="stylesheet" href="assets/styles/styles.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="home">dev.ojbective() Demo</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+        <li ui-sref-active="active"><a ui-sref="items">Items</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <!-- Content will render here... -->
+    <ui-view></ui-view>
+
+</div>
+<!--3rd party libs-->
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular/angular-ui-router.min.js"></script>
+
+<!--Main App module-->
+<script src="app/index.js"></script>
+<!--App specific services-->
+<script src="app/services/dataservice.js"></script>
+<!--App specific controllers-->
+<script src="app/home/main.controller.js"></script>
+<script src="app/items/items.controller.js"></script>
+
+</body>
+</html>

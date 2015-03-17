@@ -1,0 +1,22 @@
+.thumbnail {
+    height: 250px;
+}
+
+.thumbnail img.pull-left {
+    width: 150px;
+}
+
+.divider {
+    padding: 10px;
+}
+
+.jumbotron {
+    background-image: url('../../assets/images/lotr-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 485px;
+    background-color: black;
+    background-position-x: -104px;
+    background-position-y: -48px;
+    color: #71211E;
+
+}
