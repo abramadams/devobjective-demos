@@ -5,7 +5,7 @@
 	angular.module( 'app' )
 		.controller( 'MainController', MainController );
 
-	//Injects dependencies (since controller not registered with IIFE)
+	//Inject dependencies
 	MainController.$inject = [ '$q' ];
 
 	function MainController( $q ){

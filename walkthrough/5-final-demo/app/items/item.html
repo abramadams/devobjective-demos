@@ -1,0 +1,64 @@
+<section class="panel panel-default">
+    <div class="panel-heading">
+        <strong>
+            <span class="glyphicon glyphicon-eye-open the-eye"></span>
+            &nbsp;{{ vm.items.name }} {{ vm.items.price | currency : '$' }}
+        </strong>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <section class="panel panel-box">
+                    <img ng-src="assets/images/products/{{vm.items.image}}" class="item-image"
+                         alt="{{ vm.items.name }} : {{vm.items.description}}" class="img-responsive img-thumbnail"/>
+
+                    <div class="panel-bottom bg-reverse">
+                        <h3>{{ vm.items.name }}</h3>
+
+                        <p ng-bind-html="vm.items.description"></p>
+
+                    </div>
+                </section>
+
+                <form role="form">
+                    <div class="form-group">
+                        <label>Quantity</label>
+            <span ng-show="vm.cartIndex !== undefined" class="label label-info"> <i
+                    class="glyphicon glyphicon-exclamation-sign"></i> Item In Cart</span>
+
+                        <input spinner item="vm.items" value="vm.items.quantity"
+                               callback="vm.updateQuantity($index,vm.items.quantity)"/>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+
+                        <p class="price">{{ vm.items.price * vm.items.quantity | currency : '$' }}</p>
+                    </div>
+                    <button class="btn btn-success btn-block" ng-click="vm.addToCart()">
+                        {{ vm.addButtonText }}
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                    </button>
+                    <button class="btn btn-danger btn-block" ng-hide="vm.cart.length == 0" ui-sref="cart">
+                        Checkout
+                        <span class="glyphicon glyphicon-credit-card"></span>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-dark btn-block btn-direction btn-left" ui-sref="items">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Go Back to Item List
+            </button>
+        </div>
+    </div>
+</section>
+

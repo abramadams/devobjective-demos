@@ -1,0 +1,91 @@
+<section class="panel panel-default">
+    <div class="panel-heading">
+        <strong>
+            <span class="glyphicon glyphicon-th"></span>
+            Shopping Cart
+        </strong>
+    </div>
+    <div class="panel-body">
+        <div ng-if="!vm.cart.length">
+
+            <div class="alert alert-warning">
+                <h1>
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    Cart is Empty
+                </h1>
+
+                <div class="row spacer">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-dark btn-block btn-direction btn-left" ui-sref="items">
+                            <span class="glyphicon glyphicon-arrow-left"></span>
+                            Go Back to Item List
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="vm.cart.length">
+            <div class="row">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in vm.cart">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4">
+                                <label>Item:</label>
+                                <img ng-src="assets/images/products/{{item.thumbnail}}" class="circle"/>
+                                {{ item.name }}
+
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Quantity:</label>
+
+                                <input spinner item="item" value="item.quantity"
+                                       callback="vm.updateQuantity($index,item.quantity)"/>
+
+                            </div>
+                            <div class="divider"></div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Price:</label>
+                                {{ item.price | currency : '$' }}
+                                <a ng-click="vm.removeItem( $index )" class="btn btn-danger btn-xs pull-right">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <label>Subtotal: {{ item.price * item.quantity | currency : '$' }}</label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    Cart Total: {{vm.cartTotal | currency : '$'}}
+                    <a ng-click="vm.emptyCart()" class="btn btn-danger btn-xs pull-right">
+                        Empty Cart
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="divider"></div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-success btn-block" ng-click="vm.checkout()">
+                        Checkout
+                        <span class="glyphicon glyphicon-credit-card"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="divider"></div>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.cart.length">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-dark btn-block btn-direction btn-left" ui-sref="items">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+                Go Back to Item List
+            </button>
+        </div>
+    </div>
+</section>
