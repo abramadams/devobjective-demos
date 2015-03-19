@@ -43,8 +43,41 @@
 				             templateUrl: 'app/cart/cart.html',
 				             controller: 'CartController',
 				             controllerAs: 'vm'
+			             } )
+			             // Checkout states (uses nested states)
+			             .state( 'checkout', {
+				             url: '/checkout',
+				             abstract: true,
+				             templateUrl: 'app/checkout/checkout.html',
+				             controller: 'CheckoutController',
+				             controllerAs: 'vm'
+			             } )
+			             .state( 'checkout.profile', {
+				             url: '',
+				             templateUrl: 'app/checkout/checkout.profile.html'
+			             } )
+			             .state( 'checkout.address', {
+				             url: '/address',
+				             templateUrl: 'app/checkout/checkout.address.html'
+			             } )
+			             .state( 'checkout.payment', {
+				             url: '/payment',
+				             templateUrl: 'app/checkout/checkout.payment.html'
+			             } )
+			             .state( 'checkout.confirmation', {
+				             url: '/confirmation',
+				             templateUrl: 'app/checkout/checkout.confirmation.html'
 			             } );
 
-	             } ] );
+	             } ] )
+		.run( [ '$rootScope', 'cartService',
+	          function( $rootScope, cartService ){
+		          //simple toggle for mobile nav
+		          $rootScope.isCollapsed = true;
+
+		          //add cart count to navigation badge
+		          $rootScope.cartCount = function(){ return cartService.totalItems() };
+
+	          } ] );
 
 }());

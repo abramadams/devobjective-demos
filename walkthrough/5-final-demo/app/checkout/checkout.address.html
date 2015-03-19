@@ -4,27 +4,27 @@
 
         <div class="form-group">
             <div>
-                <input type="text" class="form-control ng-pristine" placeholder="Street Address 1"
+                <input type="text" class="form-control" placeholder="Street Address 1"
                        data-ng-model="vm.checkoutForm.addressLine1">
                 <br>
-                <input type="text" class="form-control ng-pristine" placeholder="Street Address 2"
+                <input type="text" class="form-control" placeholder="Street Address 2"
                        data-ng-model="vm.checkoutForm.addressLine2">
                 <br>
-                <input type="text" class="form-control ng-pristine" placeholder="City"
+                <input type="text" class="form-control" placeholder="City"
                        data-ng-model="vm.checkoutForm.addressCity">
                 <br>
                 <label>State</label>
                 <select ng-model="vm.checkoutForm.addressState" placeholder="State"
                         ng-options="state.abbreviation as state.name for state in vm.states"
-                        class="form-control ng-pristine"/>
+                        class="form-control"/>
                 <br>
-                <input type="text" class="form-control ng-pristine" placeholder="Zip Code"
+                <input type="text" class="form-control" placeholder="Zip Code"
                        data-ng-model="vm.checkoutForm.addressZip">
             </div>
         </div>
         <div class="form-group">
             <label>Phone</label>
-            <input type="phone" class="form-control ng-pristine" placeholder="Phone Number"
+            <input type="phone" class="form-control" placeholder="Phone Number"
                    data-ng-model="vm.checkoutForm.phone">
         </div>
         <div class="row">

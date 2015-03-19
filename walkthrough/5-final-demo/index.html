@@ -27,6 +27,11 @@
             <ul class="nav navbar-nav">
                 <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
                 <li ui-sref-active="active"><a ui-sref="items">Items</a></li>
+                <li ui-sref-active="active">
+                    <a ui-sref="cart" class="glyphicon glyphicon-shopping-cart">
+                        <span class="badge" ng-if="cartCount()">{{cartCount()}}</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -65,9 +70,11 @@
 <!--App specific controllers-->
 <script src="app/home/home.controller.js"></script>
 <script src="app/items/items.controller.js"></script>
-
+<script src="app/cart/cart.controller.js"></script>
+<script src="app/checkout/checkout.controller.js"></script>
 
 <!--Directives-->
 <script src="app/common/widgets/spinner.directive.js"></script>
+
 </body>
 </html>
