@@ -24,12 +24,12 @@
 		vm.addItem = addItem;
 		vm.removeItem = removeItem;
 
+		//Activate the view (basically call all the services and log it)
+		activate();
+
 		///////////////////////////////////////////////////////////////////
 		// IMPLEMENTATION DETAILS
 		///////////////////////////////////////////////////////////////////
-
-		//Activate the view (basically call all the services and log it)
-		activate();
 
 		function activate(){
 			// promises should be an array of function calls i.e. [getItems(),getPreferences()]

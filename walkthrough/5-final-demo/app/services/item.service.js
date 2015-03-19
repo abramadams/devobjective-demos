@@ -1,8 +1,7 @@
 (function(){
 	'use strict';
 
-	angular
-		.module( 'app.services.item', [] )
+	angular.module( 'app.services.item', [] )
 		.factory( 'itemService', itemService );
 
 	itemService.$inject = [ '$q', '$http' ];
@@ -22,12 +21,15 @@
 		}
 
 		function getItem( itemId ){
+			//Grab all items
 			var items = getItems().then( function( response ){
+				//now filter for the item with the given linkId
 				return response.data.filter( function( item ){
 					return item.linkId == itemId;
 				} );
 			} );
 
+			// Return a promise
 			return $q.when( items );
 		}
 	}

@@ -1,0 +1,61 @@
+<div class="panel-body">
+    <div ng-if="vm.order.length == 0">
+
+        <div class="alert alert-warning">
+            <h1>
+                <span class="glyphicon glyphicon-warning-sign"></span>
+                Order not found!
+            </h1>
+
+            <div class="row spacer">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-dark btn-block btn-direction btn-left" ui-sref="items">
+                        <span class="glyphicon glyphicon-arrow-left"></span>
+                        Go Back to Item List
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-if="vm.order.length !== 0">
+        <h3>Confirmation</h3>
+
+        <p>Thank you for your Order! Here's what is coming for... err.. I mean to you.</p>
+
+        <div class="row">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="item in vm.order.items">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <label>Item:</label>
+                            <img ng-src="assets/images/products/{{item.thumbnail}}" class="circle"/>
+                            {{ item.name }}
+
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <label>Quantity:</label>
+                            {{item.quantity}}
+                        </div>
+                        <div class="divider"></div>
+                        <div class="col-xs-12 col-md-4">
+                            <label>Price:</label>
+                            {{ item.price | currency : '$' }}
+                            </a>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <label>Subtotal: {{ item.price * item.quantity | currency : '$' }}</label>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="callout callout-success" style="padding:10px 0px 3px 5px;margin:0px;">
+            <h2>Order Total: {{vm.order.total | currency : '$'}}</h2>
+        </div>
+
+    </div>
+
+</div>
+

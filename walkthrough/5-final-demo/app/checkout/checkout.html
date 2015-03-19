@@ -1,22 +1,26 @@
 <div class="page">
-    <button class="btn btn-dark btn-block" ui-sref="cart">
+    <button class="btn btn-dark btn-block" ui-sref="cart" ng-if="vm.order.length == 0">
         <span class="glyphicon glyphicon-arrow-left"></span>
         Back to Cart
     </button>
-    <div class="callout callout-success" style="padding:10px 0px 3px 5px;margin:0px;" ng-if="!vm.cart.length == 0">
+    <button class="btn btn-dark btn-block" ui-sref="items" ng-if="vm.order.length !== 0">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        Back to Items
+    </button>
+    <div class="callout callout-success" style="padding:10px 0px 3px 5px;margin:0px;" ng-if="vm.cart.length !== 0">
         <h2>Order Total: {{vm.cartTotal | currency : '$'}}</h2>
     </div>
     <section class="panel panel-default">
         <div class="panel-heading">
             <strong>
-                <span class="glyphicon glyphicon-th"></span>
-                Checking Out
+                <span class="glyphicon glyphicon-eye-open the-eye"></span>&nbsp;
+                Check Out
             </strong>
         </div>
-        <div class="alert alert-warning" style="margin-bottom:0px;" ng-show="!vm.canSubmit() && !vm.cart.length == 0">
+        <div class="alert alert-warning" style="margin-bottom:0px;" ng-show="!vm.canSubmit() && vm.cart.length !== 0">
             You must fill in the required fields to complete the payment.
         </div>
-        <div class="alert alert-warning" ng-if="vm.cart.length == 0">
+        <div class="alert alert-warning" ng-if="vm.cart.length == 0 && vm.order.length == 0">
             <h1>
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 Cart is Empty
@@ -32,8 +36,8 @@
             </div>
         </div>
 
-        <div ng-if="vm.cart.length !== 0">
-            <div id="status-buttons" class="text-center">
+        <div ng-if="vm.cart.length !== 0 || vm.order.length !== 0">
+            <div id="status-buttons" class="text-center" ng-if="vm.cart.length !== 0">
                 <button ui-sref-active="btn-primary" ui-sref=".profile" class="btn btn-large btn-danger">
                     <span class="badge badge-primary">1</span> Profile
                 </button>
@@ -47,7 +51,7 @@
                 </button>
             </div>
 
-            <form stripe-form="handleStripe" name="vm.checkoutForm">
+            <form name="vm.checkoutForm">
                 <!-- our nested state views will be injected here -->
                 <div id="form-views" ui-view></div>
             </form>

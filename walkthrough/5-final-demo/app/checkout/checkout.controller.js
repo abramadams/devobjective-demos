@@ -1,10 +1,9 @@
 (function(){
 	'use strict';
 
-	var controllerId = 'CheckoutController';
 	//Registers controller with "app"
 	angular.module( 'app' )
-		.controller( controllerId, CheckoutController );
+		.controller( 'CheckoutController', CheckoutController );
 
 	CheckoutController.$inject = [ '$q', '$state', 'cartService' ];
 
@@ -14,6 +13,7 @@
 
 		// Exports.
 		vm.cart = [];
+		vm.order = vm.order || [];
 		vm.states = [];
 		vm.checkoutForm = {};
 		vm.cartTotal = parseFloat( cartService.cartTotal() );
@@ -48,7 +48,27 @@
 		}
 
 		function checkout(){
-			cartService.checkout();
+			var order = cartService.checkout();
+			vm.order = [];
+			if( order.status && order.status == "success" ){
+				vm.cart = [];
+
+				order.customer = {
+					firstName: vm.checkoutForm.firstName || "",
+					lastName: vm.checkoutForm.lastName || "",
+					addressLine1: vm.checkoutForm.addressLine1 || "",
+					addressLine2: vm.checkoutForm.addressLine2 || "",
+					city: vm.checkoutForm.addressCity || "",
+					state: vm.checkoutForm.addressState || "",
+					zip: vm.checkoutForm.addressZip || "",
+					phone: vm.checkoutForm.phone || "",
+					email: vm.checkoutForm.email || ""
+				};
+
+				vm.order = order;
+
+				$state.go( 'checkout.confirmation' );
+			}
 		}
 
 	}

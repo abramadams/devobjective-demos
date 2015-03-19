@@ -1,14 +1,14 @@
 (function(){
 	'use strict';
 
-	var controllerId = 'CartController';
 	//Registers controller with "app"
 	angular.module( 'app' )
-		.controller( controllerId, CartController );
+		.controller( 'CartController', CartController );
 
 	CartController.$inject = [ '$q', '$state', 'cartService' ];
 
 	function CartController( $q, $state, cartService ){
+
 		// hang all "$scope" type stuff off of vm (view model)
 		var vm = this;
 
@@ -53,7 +53,7 @@
 		}
 
 		function checkout(){
-			//cartService.checkout();
+
 			$state.go( 'checkout.profile' );
 		}
 

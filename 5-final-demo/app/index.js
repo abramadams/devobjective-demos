@@ -12,15 +12,11 @@
 		'app.constants',
 		'app.widgets',
 		'app.services.item',
-		'app.services.cart',
-		'app.services.device',
-		'app.services.auth'
-	] )
-		.config( [ '$stateProvider', '$urlRouterProvider', 'constants',
-	             function( $stateProvider, $urlRouterProvider, constants ){
+		'app.services.cart'
 
-		             var userRoles = constants.USER_ROLES;
-		             var accessLevels = constants.ACCESS_LEVELS;
+	] )
+		.config( [ '$stateProvider', '$urlRouterProvider',
+	             function( $stateProvider, $urlRouterProvider ){
 
 		             //Default state
 		             $urlRouterProvider.otherwise( '/home' );
@@ -30,7 +26,7 @@
 			             .state( 'home', {
 				             url: '/home',
 				             templateUrl: 'app/home/home.html',
-				             controller: 'MainController',
+				             controller: 'HomeController',
 				             controllerAs: 'vm'
 			             } )
 			             .state( 'items', {
@@ -51,6 +47,7 @@
 				             controller: 'CartController',
 				             controllerAs: 'vm'
 			             } )
+			             // Checkout states (uses nested states)
 			             .state( 'checkout', {
 				             url: '/checkout',
 				             abstract: true,
@@ -69,6 +66,10 @@
 			             .state( 'checkout.payment', {
 				             url: '/payment',
 				             templateUrl: 'app/checkout/checkout.payment.html'
+			             } )
+			             .state( 'checkout.confirmation', {
+				             url: '/confirmation',
+				             templateUrl: 'app/checkout/checkout.confirmation.html'
 			             } );
 
 	             } ] )
@@ -76,8 +77,9 @@
 	          function( $rootScope, $state, $stateParams, cartService ){
 		          //simple toggle for mobile nav
 		          $rootScope.isCollapsed = true;
-		          //Load cart
-		          cartService.init( 'devObjectiveDemo' );
+
+		          //add cart count to navigation badge
+		          $rootScope.cartCount = function(){ return cartService.totalItems() };
 
 	          } ] );
 

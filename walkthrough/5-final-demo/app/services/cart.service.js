@@ -4,13 +4,19 @@
 	angular.module( 'app.services.cart', [ 'angularLocalStorage' ] )
 		.factory( 'cartService', cartService );
 
-	cartService.$inject = [ '$q', '$http', 'storage' ];
+	cartService.$inject = [ 'storage', 'constants' ];
 
 	/* @ngInject */
-	function cartService( $q, $http, storage ){
+	function cartService( storage, constants ){
+
+		var itemsStore = constants.CART_NAME;
+
+		if( !( storage.get( itemsStore ) instanceof Array ) ){
+			storage.set( itemsStore, [] );
+		}
+
 		return {
-			itemsCookie: [],
-			init: init,
+			itemsStore: itemsStore,
 			getCart: getCart,
 			getStates: getStates,
 			addItem: addItem,
@@ -31,16 +37,8 @@
 		// Implementation details
 		//////////////////////////////
 
-		function init( itemsCookie ){
-			this.itemsCookie = itemsCookie;
-
-			if( !( storage.get( this.itemsCookie ) instanceof Array ) ){
-				storage.set( this.itemsCookie, [] );
-			}
-		}
-
 		function getCart(){
-			var cart = storage.get( this.itemsCookie );
+			var cart = storage.get( this.itemsStore );
 			for( var i = 0; i < cart.length; i++ ){
 				cart[ i ].quantity = parseInt( cart[ i ].quantity, 10 );
 			}
@@ -232,7 +230,7 @@
 			if( quantity === undefined ){
 				quantity = 1;
 			}
-			var items = storage.get( this.itemsCookie );
+			var items = storage.get( this.itemsStore );
 
 			items.push( {
 				id: item.id,
@@ -244,19 +242,19 @@
 				description: item.description
 			} );
 
-			storage.set( this.itemsCookie, items );
+			storage.set( this.itemsStore, items );
 
 			return items.length - 1;
 		}
 
 		function removeItem( index ){
-			var items = storage.get( this.itemsCookie );
+			var items = storage.get( this.itemsStore );
 			items.splice( index, 1 );
-			storage.set( this.itemsCookie, items );
+			storage.set( this.itemsStore, items );
 		}
 
 		function getItem( index ){
-			var items = storage.get( this.itemsCookie );
+			var items = storage.get( this.itemsStore );
 
 			items[ index ].quantity = parseInt( items[ index ].quantity, 10 );
 			return items[ index ];
@@ -264,7 +262,7 @@
 		}
 
 		function getItemIndex( itemId ){
-			var items = storage.get( this.itemsCookie );
+			var items = storage.get( this.itemsStore );
 
 			for( var i = 0; i < items.length; i++ ){
 
@@ -277,7 +275,7 @@
 		}
 
 		function getItemById( itemId ){
-			var items = storage.get( this.itemsCookie ), item = {};
+			var items = storage.get( this.itemsStore ), item = {};
 
 			item = items[ this.getItemIndex( itemId ) ];
 
@@ -286,21 +284,21 @@
 		}
 
 		function updateQuantity( index, quantity ){
-			var items = storage.get( this.itemsCookie );
+			var items = storage.get( this.itemsStore );
 
 			items[ index ].quantity = parseInt( quantity, 10 );
 			items[ index ].price = parseFloat( items[ index ].price );
-			storage.set( this.itemsCookie, items );
+			storage.set( this.itemsStore, items );
 		}
 
 		function totalItems(){
-			var items = storage.get( this.itemsCookie ) || [];
+			var items = storage.get( this.itemsStore ) || [];
 
 			return items.length;
 		}
 
 		function totalQuantity(){
-			var quantity = 0, items = storage.get( this.itemsCookie ) || [];
+			var quantity = 0, items = storage.get( this.itemsStore ) || [];
 
 			for( var i = 0; i < items.length; i++ ){
 				quantity += parseInt( items[ i ].quantity, 10 );
@@ -310,7 +308,7 @@
 		}
 
 		function cartTotal(){
-			var total = 0, items = storage.get( this.itemsCookie );
+			var total = 0, items = storage.get( this.itemsStore );
 
 			for( var i = 0; i < items.length; i++ ){
 				total += parseInt( items[ i ].quantity, 10 ) * parseFloat( items[ i ].price );
@@ -319,37 +317,23 @@
 		}
 
 		function emptyCart(){
-			storage.remove( this.itemsCookie );
-			storage.set( this.itemsCookie, [] );
+			storage.remove( this.itemsStore );
+			storage.set( this.itemsStore, [] );
 		}
 
-		function checkout( customer, eventKey ){
-			var self = this;
-			var checkout = $http( {
-				method: 'post',
-				url: '/server/api/index.cfm/checkout',
-				data: {
-					cart: {
-						items: this.getCart(),
-						total: this.cartTotal()
-					},
-					customer: customer,
-					eventKey: eventKey
-				}
-			} ).success( function( data, status, headers, config ){
-				// this callback will be called asynchronously
-				// when the response is available
-				self.emptyCart();
-				return data;
-			} ).error( function( data, status, headers, config ){
-				// called asynchronously if an error occurs
-				// or server returns response with an error status.
-				//alert( status );
-				console.log( data, status, headers, config );
-				return data;
-			} );
+		function checkout(){
+			//Fake checkout service
+			var response = {
+				status: "success",
+				items: this.getCart(),
+				total: this.cartTotal()
+			};
 
-			return checkout;
+			//would normally send a request to server to
+			//process transaction
+			this.emptyCart();
+
+			return response;
 
 		}
 

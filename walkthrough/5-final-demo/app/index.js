@@ -11,16 +11,11 @@
 		/* app specific modules */
 		'app.constants',
 		'app.widgets',
-		'app.services.item',
 		'app.services.cart',
-		'app.services.device',
-		'app.services.auth'
+		'app.services.item'
 	] )
-		.config( [ '$stateProvider', '$urlRouterProvider', 'constants',
-	             function( $stateProvider, $urlRouterProvider, constants ){
-
-		             var userRoles = constants.USER_ROLES;
-		             var accessLevels = constants.ACCESS_LEVELS;
+		.config( [ '$stateProvider', '$urlRouterProvider',
+	             function( $stateProvider, $urlRouterProvider ){
 
 		             //Default state
 		             $urlRouterProvider.otherwise( '/home' );
@@ -30,7 +25,7 @@
 			             .state( 'home', {
 				             url: '/home',
 				             templateUrl: 'app/home/home.html',
-				             controller: 'MainController',
+				             controller: 'HomeController',
 				             controllerAs: 'vm'
 			             } )
 			             .state( 'items', {
@@ -38,47 +33,18 @@
 				             templateUrl: 'app/items/items.html',
 				             controller: 'ItemsController',
 				             controllerAs: 'vm'
-			             } )
-			             .state( 'item', {
+			             } ).state( 'item', {
 				             url: '/item/:id',
 				             templateUrl: 'app/items/item.html',
 				             controller: 'ItemsController',
 				             controllerAs: 'vm'
-			             } )
-			             .state( 'cart', {
+			             } ).state( 'cart', {
 				             url: '/cart',
 				             templateUrl: 'app/cart/cart.html',
 				             controller: 'CartController',
 				             controllerAs: 'vm'
-			             } )
-			             .state( 'checkout', {
-				             url: '/checkout',
-				             abstract: true,
-				             templateUrl: 'app/checkout/checkout.html',
-				             controller: 'CheckoutController',
-				             controllerAs: 'vm'
-			             } )
-			             .state( 'checkout.profile', {
-				             url: '',
-				             templateUrl: 'app/checkout/checkout.profile.html'
-			             } )
-			             .state( 'checkout.address', {
-				             url: '/address',
-				             templateUrl: 'app/checkout/checkout.address.html'
-			             } )
-			             .state( 'checkout.payment', {
-				             url: '/payment',
-				             templateUrl: 'app/checkout/checkout.payment.html'
 			             } );
 
-	             } ] )
-		.run( [ '$rootScope', '$state', '$stateParams', 'cartService',
-	          function( $rootScope, $state, $stateParams, cartService ){
-		          //simple toggle for mobile nav
-		          $rootScope.isCollapsed = true;
-		          //Load cart
-		          cartService.init( 'devObjectiveDemo' );
-
-	          } ] );
+	             } ] );
 
 }());
