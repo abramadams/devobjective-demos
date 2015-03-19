@@ -321,12 +321,26 @@
 			storage.set( this.itemsStore, [] );
 		}
 
-		function checkout(){
+		function checkout( customer ){
+			// pull out customer info to return
+			var customerData = {
+				firstName: customer.firstName,
+				lastName: customer.lastName,
+				addressLine1: customer.addressLine1,
+				addressLine2: customer.addressLine2,
+				city: customer.addressCity,
+				state: customer.addressState,
+				zip: customer.addressZip,
+				phone: customer.phone,
+				email: customer.email
+			};
+
 			//Fake checkout service
 			var response = {
 				status: "success",
 				items: this.getCart(),
-				total: this.cartTotal()
+				total: this.cartTotal(),
+				customer: customerData
 			};
 
 			//would normally send a request to server to
@@ -339,3 +353,4 @@
 
 	}
 })();
+

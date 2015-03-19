@@ -1,31 +1,31 @@
-<div class="panel-body" id="customerForm">
+<div class="panel-body">
     <div>
         <h3>Address Information</h3>
 
         <div class="form-group">
             <div>
                 <input type="text" class="form-control" placeholder="Street Address 1"
-                       data-ng-model="vm.checkoutForm.addressLine1">
+                       ng-model="vm.checkoutForm.addressLine1">
                 <br>
                 <input type="text" class="form-control" placeholder="Street Address 2"
-                       data-ng-model="vm.checkoutForm.addressLine2">
+                       ng-model="vm.checkoutForm.addressLine2">
                 <br>
                 <input type="text" class="form-control" placeholder="City"
-                       data-ng-model="vm.checkoutForm.addressCity">
+                       ng-model="vm.checkoutForm.addressCity">
                 <br>
                 <label>State</label>
                 <select ng-model="vm.checkoutForm.addressState" placeholder="State"
                         ng-options="state.abbreviation as state.name for state in vm.states"
-                        class="form-control"/>
+                        class="form-control"></select>
                 <br>
                 <input type="text" class="form-control" placeholder="Zip Code"
-                       data-ng-model="vm.checkoutForm.addressZip">
+                       ng-model="vm.checkoutForm.addressZip">
             </div>
         </div>
         <div class="form-group">
             <label>Phone</label>
             <input type="phone" class="form-control" placeholder="Phone Number"
-                   data-ng-model="vm.checkoutForm.phone">
+                   ng-model="vm.checkoutForm.phone">
         </div>
         <div class="row">
             <div class="col-md-12">

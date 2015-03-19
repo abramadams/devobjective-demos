@@ -4,10 +4,10 @@
 	angular.module( 'app.services.cart', [ 'angularLocalStorage' ] )
 		.factory( 'cartService', cartService );
 
-	cartService.$inject = [ 'storage','constants' ];
+	cartService.$inject = [ 'storage', 'constants' ];
 
 	/* @ngInject */
-	function cartService( storage,constants ){
+	function cartService( storage, constants ){
 
 		var itemsStore = constants.CART_NAME;
 
@@ -321,7 +321,7 @@
 			storage.set( this.itemsStore, [] );
 		}
 
-		function checkout( customer, eventKey ){
+		function checkout( customer ){
 			var self = this;
 			var checkout = $http( {
 				method: 'post',
@@ -331,8 +331,7 @@
 						items: this.getCart(),
 						total: this.cartTotal()
 					},
-					customer: customer,
-					eventKey: eventKey
+					customer: customer
 				}
 			} ).success( function( data, status, headers, config ){
 				// this callback will be called asynchronously

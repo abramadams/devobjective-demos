@@ -42,8 +42,9 @@
 
         <!--Nested Views (checkout form) -->
         <div ng-if="vm.cart.length !== 0 || vm.order.length !== 0">
-            <div id="status-buttons" class="text-center" ng-if="vm.cart.length !== 0">
-                <button ui-sref-active="btn-primary" ui-sref=".profile" class="btn btn-large btn-danger">
+            <div class="text-center" ng-if="vm.cart.length !== 0">
+                <button ui-sref-active="btn-primary" ui-sref=".profile"
+                        class="btn btn-large btn-danger">
                     <span class="badge badge-primary">1</span> Profile
                 </button>
                 <button ui-sref-active="btn-primary" ng-disabled="!vm.canSubmit()" ui-sref=".address"
@@ -58,7 +59,7 @@
 
             <form name="vm.checkoutForm">
                 <!-- our nested state views will be injected here -->
-                <div id="form-views" ui-view></div>
+                <ui-view></ui-view>
             </form>
 
         </div>

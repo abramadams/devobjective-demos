@@ -26,33 +26,19 @@
 
         <p>Billing/Delivery Address</p>
         <dl class="dl-horizontal">
-            <dt>
-                Name:
-            </dt>
-            <dd>
-                {{vm.order.customer.firstName}} {{vm.order.customer.lastName}}
-            </dd>
-            <dt>
-                Address:
-            </dt>
+            <dt>Name:</dt>
+            <dd>{{vm.order.customer.firstName}} {{vm.order.customer.lastName}}</dd>
+            <dt>Address:</dt>
             <dd>
                 {{vm.order.customer.addressLine1}} <br ng-if="vm.order.customer.addressLine2 !==''">
                 {{vm.order.customer.addressLine2}} <br>
                 {{vm.order.customer.city}}, {{vm.order.customer.state}}
                 {{vm.order.customer.zip}}
             </dd>
-            <dt>
-                Phone:
-            </dt>
-            <dd>
-                {{vm.order.customer.phone}}
-            </dd>
-            <dt>
-                Email:
-            </dt>
-            <dd>
-                {{vm.order.customer.email}}
-            </dd>
+            <dt>Phone:</dt>
+            <dd>{{vm.order.customer.phone}}</dd>
+            <dt>Email:</dt>
+            <dd>{{vm.order.customer.email}}</dd>
         </dl>
 
         <div class="row">

@@ -48,20 +48,10 @@
 		}
 
 		function checkout(){
-			var order = cartService.checkout();
+			var order = cartService.checkout( vm.checkoutForm );
 			vm.order = [];
 			if( order.status && order.status == "success" ){
 				vm.cart = [];
-
-				order.customer = {
-					firstName: vm.checkoutForm.firstName,
-					lastName: vm.checkoutForm.lastName,
-					addressCity: vm.checkoutForm.addressCity,
-					addressLine1: vm.checkoutForm.addressLine1,
-					addressZip: vm.checkoutForm.addressZip,
-					email: vm.checkoutForm.email
-				};
-
 				vm.order = order;
 
 				console.log( vm.order );
