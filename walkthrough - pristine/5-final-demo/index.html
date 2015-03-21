@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- load bootstrap -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <!--custom styles-->
+    <link rel="stylesheet" href="assets/styles/styles.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home">dev.ojbective() Demo</a>
+        </div>
+        <div class="collapse navbar-collapse" collapse="isCollapsed">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+                <li ui-sref-active="active"><a ui-sref="items">Items</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- Content will render here... -->
+    <ui-view></ui-view>
+
+</div>
+
+<!--3rd party libs-->
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+<!--Main App module-->
+<script src="app/index.js"></script>
+
+<!--App specific services-->
+<script src="app/services/item.service.js"></script>
+
+<!--App specific controllers-->
+<script src="app/home/home.controller.js"></script>
+<script src="app/items/items.controller.js"></script>
+
+</body>
+</html>

@@ -10,10 +10,22 @@
 
 	function dataService( $http ){
 
+		return {
+			getAwesomeThings: getAwesomeThings,
+			getItems: getItems
+		};
 
 		///////////////////////////////////////////////////////////////////
 		// IMPLEMENTATION DETAILS
 		///////////////////////////////////////////////////////////////////
+
+		function getAwesomeThings(){
+			return $http.get( 'data/awesomethings.json' )
+		}
+
+		function getItems(){
+			return $http.get( 'data/items.json' )
+		}
 
 	}
 })();

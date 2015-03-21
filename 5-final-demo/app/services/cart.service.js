@@ -18,7 +18,6 @@
 		return {
 			itemsStore: itemsStore,
 			getCart: getCart,
-			getStates: getStates,
 			addItem: addItem,
 			removeItem: removeItem,
 			getItem: getItem,
@@ -29,7 +28,8 @@
 			totalQuantity: totalQuantity,
 			cartTotal: cartTotal,
 			emptyCart: emptyCart,
-			checkout: checkout
+			checkout: checkout,
+			getStates: getStates
 
 		};
 
@@ -43,6 +43,131 @@
 				cart[ i ].quantity = parseInt( cart[ i ].quantity, 10 );
 			}
 			return cart;
+		}
+
+		function addItem( item, quantity ){
+			if( quantity === undefined ){
+				quantity = 1;
+			}
+			var items = storage.get( this.itemsStore );
+
+			items.push( {
+				id: item.id,
+				name: item.name,
+				quantity: parseInt( quantity, 10 ),
+				price: parseFloat( item.price ),
+				image: item.image,
+				thumbnail: item.thumbnail,
+				description: item.description
+			} );
+
+			storage.set( this.itemsStore, items );
+
+			return items.length - 1;
+		}
+
+		function removeItem( index ){
+			var items = storage.get( this.itemsStore );
+			items.splice( index, 1 );
+			storage.set( this.itemsStore, items );
+		}
+
+		function getItem( index ){
+			var items = storage.get( this.itemsStore );
+
+			items[ index ].quantity = parseInt( items[ index ].quantity, 10 );
+			return items[ index ];
+
+		}
+
+		function getItemIndex( itemId ){
+			var items = storage.get( this.itemsStore );
+
+			for( var i = 0; i < items.length; i++ ){
+
+				if( items[ i ].id == itemId ){
+					return i;
+				}
+			}
+
+			return undefined;
+		}
+
+		function getItemById( itemId ){
+			var items = storage.get( this.itemsStore ), item = {};
+
+			item = items[ this.getItemIndex( itemId ) ];
+
+			return item || undefined;
+
+		}
+
+		function updateQuantity( index, quantity ){
+			var items = storage.get( this.itemsStore );
+
+			items[ index ].quantity = parseInt( quantity, 10 );
+			items[ index ].price = parseFloat( items[ index ].price );
+			storage.set( this.itemsStore, items );
+		}
+
+		function totalItems(){
+			var items = storage.get( this.itemsStore ) || [];
+
+			return items.length;
+		}
+
+		function totalQuantity(){
+			var quantity = 0, items = storage.get( this.itemsStore ) || [];
+
+			for( var i = 0; i < items.length; i++ ){
+				quantity += parseInt( items[ i ].quantity, 10 );
+			}
+
+			return quantity;
+		}
+
+		function cartTotal(){
+			var total = 0, items = storage.get( this.itemsStore );
+
+			for( var i = 0; i < items.length; i++ ){
+				total += parseInt( items[ i ].quantity, 10 ) * parseFloat( items[ i ].price );
+			}
+			return parseFloat( total );
+		}
+
+		function emptyCart(){
+			storage.remove( this.itemsStore );
+			storage.set( this.itemsStore, [] );
+		}
+
+		function checkout( customer ){
+			// pull out customer info to return
+			var customerData = {
+				firstName: customer.firstName,
+				lastName: customer.lastName,
+				addressLine1: customer.addressLine1,
+				addressLine2: customer.addressLine2,
+				city: customer.addressCity,
+				state: customer.addressState,
+				zip: customer.addressZip,
+				phone: customer.phone,
+				email: customer.email
+			};
+
+			//Fake checkout service
+			var response = {
+				status: "success",
+				items: this.getCart(),
+				total: this.cartTotal(),
+				customer: customerData
+			};
+
+			//would normally send a request to server to
+			//process transaction
+			this.emptyCart();
+
+			return response;
+
 		}
 
 		function getStates(){
@@ -226,131 +351,5 @@
 			         } ];
 		}
 
-		function addItem( item, quantity ){
-			if( quantity === undefined ){
-				quantity = 1;
-			}
-			var items = storage.get( this.itemsStore );
-
-			items.push( {
-				id: item.id,
-				name: item.name,
-				quantity: parseInt( quantity, 10 ),
-				price: parseFloat( item.price ),
-				image: item.image,
-				thumbnail: item.thumbnail,
-				description: item.description
-			} );
-
-			storage.set( this.itemsStore, items );
-
-			return items.length - 1;
-		}
-
-		function removeItem( index ){
-			var items = storage.get( this.itemsStore );
-			items.splice( index, 1 );
-			storage.set( this.itemsStore, items );
-		}
-
-		function getItem( index ){
-			var items = storage.get( this.itemsStore );
-
-			items[ index ].quantity = parseInt( items[ index ].quantity, 10 );
-			return items[ index ];
-
-		}
-
-		function getItemIndex( itemId ){
-			var items = storage.get( this.itemsStore );
-
-			for( var i = 0; i < items.length; i++ ){
-
-				if( items[ i ].id == itemId ){
-					return i;
-				}
-			}
-
-			return undefined;
-		}
-
-		function getItemById( itemId ){
-			var items = storage.get( this.itemsStore ), item = {};
-
-			item = items[ this.getItemIndex( itemId ) ];
-
-			return item || undefined;
-
-		}
-
-		function updateQuantity( index, quantity ){
-			var items = storage.get( this.itemsStore );
-
-			items[ index ].quantity = parseInt( quantity, 10 );
-			items[ index ].price = parseFloat( items[ index ].price );
-			storage.set( this.itemsStore, items );
-		}
-
-		function totalItems(){
-			var items = storage.get( this.itemsStore ) || [];
-
-			return items.length;
-		}
-
-		function totalQuantity(){
-			var quantity = 0, items = storage.get( this.itemsStore ) || [];
-
-			for( var i = 0; i < items.length; i++ ){
-				quantity += parseInt( items[ i ].quantity, 10 );
-			}
-
-			return quantity;
-		}
-
-		function cartTotal(){
-			var total = 0, items = storage.get( this.itemsStore );
-
-			for( var i = 0; i < items.length; i++ ){
-				total += parseInt( items[ i ].quantity, 10 ) * parseFloat( items[ i ].price );
-			}
-			return parseFloat( total );
-		}
-
-		function emptyCart(){
-			storage.remove( this.itemsStore );
-			storage.set( this.itemsStore, [] );
-		}
-
-		function checkout( customer ){
-			// pull out customer info to return
-			var customerData = {
-				firstName: customer.firstName,
-				lastName: customer.lastName,
-				addressLine1: customer.addressLine1,
-				addressLine2: customer.addressLine2,
-				city: customer.addressCity,
-				state: customer.addressState,
-				zip: customer.addressZip,
-				phone: customer.phone,
-				email: customer.email
-			};
-
-			//Fake checkout service
-			var response = {
-				status: "success",
-				items: this.getCart(),
-				total: this.cartTotal(),
-				customer: customerData
-			};
-
-			//would normally send a request to server to
-			//process transaction
-			this.emptyCart();
-
-			return response;
-
-		}
-
 	}
 })();
-
