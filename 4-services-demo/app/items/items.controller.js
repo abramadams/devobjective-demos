@@ -6,9 +6,9 @@
 		.controller( 'ItemsController', ItemsController );
 
 	//Inject dependencies
-	ItemsController.$inject = [ '$q', 'dataService' ];
+	ItemsController.$inject = [ '$q', 'itemService' ];
 
-	function ItemsController( $q, dataService ){
+	function ItemsController( $q, itemService ){
 
 		// hang all "$scope" type stuff off of vm (view model)
 		var vm = this;
@@ -38,7 +38,7 @@
 		}
 
 		function getItems(){
-			dataService.getItems()
+			itemService.getItems()
 				.then( function( response ){
 					vm.items = response.data;
 				} );

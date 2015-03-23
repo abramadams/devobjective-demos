@@ -4,12 +4,12 @@
 	angular.module( 'app.services.cart', [ 'angularLocalStorage' ] )
 		.factory( 'cartService', cartService );
 
-	cartService.$inject = [ 'storage', 'constants' ];
+	cartService.$inject = [ 'storage' ];
 
 	/* @ngInject */
-	function cartService( storage, constants ){
+	function cartService( storage ){
 
-		var itemsStore = constants.CART_NAME;
+		var itemsStore = 'devObjectiveDemo';// should abstract via "constant"
 
 		if( !( storage.get( itemsStore ) instanceof Array ) ){
 			storage.set( itemsStore, [] );

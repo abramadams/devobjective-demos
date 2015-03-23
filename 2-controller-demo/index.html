@@ -3,25 +3,47 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+
+    <!-- load bootstrap -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <!--custom styles-->
+    <link rel="stylesheet" href="assets/styles/styles.css">
+
 </head>
-<body ng-controller="MainController as vm">
+<body ng-controller="ItemsController as vm">
 
-<input type="text" ng-model="vm.name">
-<button ng-click="vm.addItem()">Add</button>
+<div class="container">
+    <form ng-submit="vm.addItem()">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" ng-model="vm.name" placeholder="Add an item" class="form-control col-sm-8">
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary">Add</button>
+                </span>
+                </div>
+            </div>
+        </div>
+    </form>
 
-<ul>
-    <li ng-repeat="item in vm.items">{{item.name}}
-        <button ng-click="vm.removeItem($index)">Delete</button>
-    </li>
-</ul>
-
+    <hr>
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="item in vm.items">{{item.name}}
+                <a class="btn btn-xs btn-danger pull-right" ng-click="vm.removeItem($index)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <!--3rd party libs-->
-<script src="angular/angular.min.js"></script>
+<script src="libs/angular/angular.min.js"></script>
 <!--App module-->
-<script src="index.js"></script>
+<script src="app/index.js"></script>
 <!--Main controller-->
-<script src="main.controller.js"></script>
+<script src="app/items/items.controller.js"></script>
 
 </body>
 </html>

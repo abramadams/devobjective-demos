@@ -4,24 +4,16 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
-<body ng-controller="MainController as vm">
+<body>
 
-<input type="text" ng-model="vm.name">
-<button ng-click="vm.addItem()">Add</button>
-
-<ul>
-    <li ng-repeat="item in vm.items">{{item.name}}
-        <button ng-click="vm.removeItem($index)">Delete</button>
-    </li>
-</ul>
+Hello {{name}}!
+<br/>
+<input ng-model="name">
 
 <!--3rd party libs-->
-<script src="angular/angular.min.js"></script>
+<script src="libs/angular/angular.min.js"></script>
 <!--App module-->
-<script src="index.js"></script>
-
-<!--Main controller-->
-<script src="main.controller.js"></script>
+<script src="app/index.js"></script>
 
 </body>
 </html>

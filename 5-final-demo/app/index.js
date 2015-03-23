@@ -9,7 +9,6 @@
 		'ngSanitize',
 		'angularPayments',
 		/* app specific modules */
-		'app.constants',
 		'app.widgets',
 		'app.services.item',
 		'app.services.cart'

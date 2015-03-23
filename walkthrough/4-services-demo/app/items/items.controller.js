@@ -1,4 +1,4 @@
-(function() {
+(function(){
 	'use strict';
 
 	//Registers controller with "app"
@@ -6,18 +6,23 @@
 		.controller( 'ItemsController', ItemsController );
 
 	//Inject dependencies
-	ItemsController.$inject = [ '$q', 'dataService' ];
+	ItemsController.$inject = [ '$q' ];
 
-	function ItemsController( $q, dataService ) {
+	function ItemsController( $q ){
 
 		// hang all "$scope" type stuff off of vm (view model)
 		var vm = this;
 
 		// Exports
-		vm.items = [];
+		vm.items = [
+			{ name: "item 1" },
+			{ name: "item 2" },
+			{ name: "item 3" },
+			{ name: "item 4" },
+			{ name: "item 5" }
+		];
 		vm.addItem = addItem;
 		vm.removeItem = removeItem;
-		vm.reloadItems = getItems;
 
 		///////////////////////////////////////////////////////////////////
 		// IMPLEMENTATION DETAILS
@@ -26,32 +31,25 @@
 		//Activate the view (basically call all the services and log it)
 		activate();
 
-		function activate() {
+		function activate(){
 			// promises should be an array of function calls i.e. [getItems(),getPreferences()]
-			var promises = [ getItems() ];
+			var promises = [];
 
 			return $q.all( promises )
-				.then( function() {
+				.then( function(){
 					console.log( 'Items View Loaded' );
 				}
 			);
 		}
 
-		function getItems() {
-			dataService.getItems()
-				.then( function( response ) {
-					vm.items = response.data;
-				} );
-		}
-
-		function addItem() {
+		function addItem(){
 			if( vm.name && vm.name.length > 0 ){
 				vm.items.push( { name: vm.name } );
 			}
 			vm.name = "";
 		}
 
-		function removeItem( index ) {
+		function removeItem( index ){
 			vm.items.splice( index, 1 );
 		}
 

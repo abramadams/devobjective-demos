@@ -6,9 +6,9 @@
 		.controller( 'HomeController', HomeController );
 
 	//Inject dependencies
-	HomeController.$inject = [ '$q', 'dataService' ];
+	HomeController.$inject = [ '$q', 'itemService' ];
 
-	function HomeController( $q, dataService ){
+	function HomeController( $q, itemService ){
 
 		// hang all "$scope" type stuff off of vm (view model)
 		var vm = this;
@@ -37,7 +37,7 @@
 		function getAwesomeThings(){
 			//Should be pulling this from a service
 			var awesomeThings = [];
-			dataService.getAwesomeThings()
+			itemService.getAwesomeThings()
 				.then( function( response ){
 					awesomeThings = response.data;
 					awesomeThings.map( function( awesomeThing ){

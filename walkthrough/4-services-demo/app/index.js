@@ -1,8 +1,8 @@
-(function() {
+(function(){
 	"use strict"
 
-	angular.module( 'app', [ 'ui.router', 'app.dataservice' ] )
-		.config( function( $stateProvider, $urlRouterProvider ) {
+	angular.module( 'app', [ 'ui.router' ] )
+		.config( function( $stateProvider, $urlRouterProvider ){
 			//Default state
 			$urlRouterProvider.otherwise( '/home' );
 

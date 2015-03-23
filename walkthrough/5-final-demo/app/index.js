@@ -1,19 +1,7 @@
 (function(){
 	"use strict"
 
-	angular.module( 'app', [
-		/* Angular & 3rd Party modules */
-		'ui.router',
-		'ui.bootstrap',
-		'angularLocalStorage',
-		'ngSanitize',
-		'angularPayments',
-		/* app specific modules */
-		'app.constants',
-		'app.widgets',
-		'app.services.cart',
-		'app.services.item'
-	] )
+	angular.module( 'app', [ 'ui.router', 'app.services.item' ] )
 		.config( [ '$stateProvider', '$urlRouterProvider',
 	             function( $stateProvider, $urlRouterProvider ){
 
@@ -33,53 +21,8 @@
 				             templateUrl: 'app/items/items.html',
 				             controller: 'ItemsController',
 				             controllerAs: 'vm'
-			             } )
-			             .state( 'item', {
-				             url: '/item/:id',
-				             templateUrl: 'app/items/item.html',
-				             controller: 'ItemsController',
-				             controllerAs: 'vm'
-			             } )
-			             .state( 'cart', {
-				             url: '/cart',
-				             templateUrl: 'app/cart/cart.html',
-				             controller: 'CartController',
-				             controllerAs: 'vm'
-			             } )
-			             // Checkout states (uses nested states)
-			             .state( 'checkout', {
-				             url: '/checkout',
-				             abstract: true,
-				             templateUrl: 'app/checkout/checkout.html',
-				             controller: 'CheckoutController',
-				             controllerAs: 'vm'
-			             } )
-			             .state( 'checkout.profile', {
-				             url: '',
-				             templateUrl: 'app/checkout/checkout.profile.html'
-			             } )
-			             .state( 'checkout.address', {
-				             url: '/address',
-				             templateUrl: 'app/checkout/checkout.address.html'
-			             } )
-			             .state( 'checkout.payment', {
-				             url: '/payment',
-				             templateUrl: 'app/checkout/checkout.payment.html'
-			             } )
-			             .state( 'checkout.confirmation', {
-				             url: '/confirmation',
-				             templateUrl: 'app/checkout/checkout.confirmation.html'
 			             } );
 
-	             } ] )
-		.run( [ '$rootScope', 'cartService',
-	          function( $rootScope, cartService ){
-		          //simple toggle for mobile nav
-		          $rootScope.isCollapsed = true;
-
-		          //add cart count to navigation badge
-		          $rootScope.cartCount = function(){ return cartService.totalItems() };
-
-	          } ] );
+	             } ] );
 
 }());
