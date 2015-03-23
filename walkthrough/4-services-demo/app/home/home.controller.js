@@ -1,4 +1,4 @@
-(function(){
+(function() {
 	'use strict';
 
 	//Registers controller with "app"
@@ -8,7 +8,7 @@
 	//Inject dependencies
 	HomeController.$inject = [ '$q', 'dataService' ];
 
-	function HomeController( $q, dataService ){
+	function HomeController( $q, dataService ) {
 
 		// hang all "$scope" type stuff off of vm (view model)
 		var vm = this;
@@ -23,24 +23,25 @@
 		//Activate the view (basically call all the services and log it)
 		activate();
 
-		function activate(){
+		function activate() {
 			// promises should be an array of function calls i.e. [getItems(),getPreferences()]
 			var promises = [ getAwesomeThings() ];
 
 			return $q.all( promises )
-				.then( function(){
+				.then( function() {
 					console.log( 'Home View Loaded' );
 				}
 			);
 		}
 
-		function getAwesomeThings(){
+		function getAwesomeThings() {
 			//Should be pulling this from a service
 			var awesomeThings = [];
+
 			dataService.getAwesomeThings()
-				.then( function( response ){
+				.then( function( response ) {
 					awesomeThings = response.data;
-					awesomeThings.map( function( awesomeThing ){
+					awesomeThings.map( function( awesomeThing ) {
 						awesomeThing.rank = Math.random();
 					} );
 					vm.awesomeThings = awesomeThings;

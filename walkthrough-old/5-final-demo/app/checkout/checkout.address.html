@@ -1,0 +1,46 @@
+<div class="panel-body">
+    <div>
+        <h3>Address Information</h3>
+
+        <div class="form-group">
+            <div>
+                <input type="text" class="form-control" placeholder="Street Address 1"
+                       ng-model="vm.checkoutForm.addressLine1">
+                <br>
+                <input type="text" class="form-control" placeholder="Street Address 2"
+                       ng-model="vm.checkoutForm.addressLine2">
+                <br>
+                <input type="text" class="form-control" placeholder="City"
+                       ng-model="vm.checkoutForm.addressCity">
+                <br>
+                <label>State</label>
+                <select ng-model="vm.checkoutForm.addressState" placeholder="State"
+                        ng-options="state.abbreviation as state.name for state in vm.states"
+                        class="form-control"></select>
+                <br>
+                <input type="text" class="form-control" placeholder="Zip Code"
+                       ng-model="vm.checkoutForm.addressZip">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="phone" class="form-control" placeholder="Phone Number"
+                   ng-model="vm.checkoutForm.phone">
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a ui-sref="checkout.profile" ng-disabled="!vm.canSubmit()"
+                   class="btn btn-danger btn-direction btn-left pull-left">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                    Back
+                </a>
+                <a ui-sref="checkout.payment" ng-disabled="!vm.canSubmit()"
+                   class="btn btn-danger btn-direction btn-right pull-right">
+                    Next
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

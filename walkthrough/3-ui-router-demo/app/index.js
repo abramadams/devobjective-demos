@@ -1,10 +1,8 @@
-(function(){
+(function() {
 	"use strict"
 
 	angular.module( 'app', [ 'ui.router' ] )
-		.config( function( $stateProvider, $urlRouterProvider ){
-			//Default state
-			$urlRouterProvider.otherwise( '/home' );
+		.config( function( $stateProvider, $urlRouterProvider ) {
 
 			$stateProvider
 
@@ -22,7 +20,8 @@
 					controllerAs: 'vm'
 				} );
 
-		} )
-	;
+			//Default state
+			$urlRouterProvider.otherwise( '/home' );
+		} );
 
 }());

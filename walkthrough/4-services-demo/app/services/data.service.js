@@ -1,4 +1,4 @@
-(function(){
+(function() {
 	'use strict';
 
 	//Creates a new module 'app.dataservice' and registers a factory/service
@@ -8,7 +8,7 @@
 	//Inject dependencies
 	dataService.$inject = [ '$http' ];
 
-	function dataService( $http ){
+	function dataService( $http ) {
 
 		return {
 			getAwesomeThings: getAwesomeThings,
@@ -18,14 +18,14 @@
 		///////////////////////////////////////////////////////////////////
 		// IMPLEMENTATION DETAILS
 		///////////////////////////////////////////////////////////////////
-
-		function getAwesomeThings(){
+		function getAwesomeThings() {
 			return $http.get( 'data/awesomethings.json' )
 		}
 
-		function getItems(){
+		function getItems() {
 			return $http.get( 'data/items.json' )
 		}
 
 	}
+
 })();

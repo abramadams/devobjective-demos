@@ -32,6 +32,7 @@
 		}
 
 		function getItems(){
+
 			var itemId = $stateParams.id;
 
 			// Return single item
@@ -42,6 +43,7 @@
 					vm.items = data[ 0 ];
 					// set default quantity to 1
 					vm.items.quantity = 1;
+
 					// grab the index of the current item, if it exists
 					vm.cartIndex = cartService.getItemIndex( vm.items.id );
 
@@ -68,6 +70,7 @@
 			}
 			vm.addButtonText = "Update Cart";
 		}
+
 	}
 })();
 

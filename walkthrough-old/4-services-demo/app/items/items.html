@@ -1,0 +1,30 @@
+<form ng-submit="vm.addItem()">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" ng-model="vm.name" placeholder="Add an item" class="form-control col-sm-8">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary">Add</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</form>
+
+<hr>
+
+<div class="row">
+    <button class="btn btn-sm btn-success pull-right" ng-click="vm.reloadItems()">
+        <i class="glyphicon glyphicon-refresh"></i> Reload
+    </button>
+</div>
+
+<div class="row">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="item in vm.items">{{item.name}}
+            <a class="btn btn-xs btn-danger pull-right" ng-click="vm.removeItem($index)">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </li>
+    </ul>
+</div>

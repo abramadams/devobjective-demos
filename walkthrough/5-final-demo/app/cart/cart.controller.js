@@ -11,6 +11,8 @@
 
 		// hang all "$scope" type stuff off of vm (view model)
 		var vm = this;
+
+		// Exports.
 		vm.cart = [];
 		vm.cartTotal = parseFloat( cartService.cartTotal() );
 		vm.updateQuantity = updateQuantity;
@@ -18,7 +20,6 @@
 		vm.checkout = checkout;
 		vm.emptyCart = emptyCart;
 
-		// Exports.
 
 		//Activate the view (basically call all the services and log it)
 		activate();
@@ -29,6 +30,7 @@
 
 			return $q.all( promises )
 				.then( function(){
+
 					console.log( 'Cart View Loaded' );
 				}
 			);

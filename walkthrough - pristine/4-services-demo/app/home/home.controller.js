@@ -1,4 +1,4 @@
-(function(){
+(function() {
 	'use strict';
 
 	//Registers controller with "app"
@@ -6,9 +6,9 @@
 		.controller( 'HomeController', HomeController );
 
 	//Inject dependencies
-	HomeController.$inject = [ '$q', 'dataService' ];
+	HomeController.$inject = [ '$q' ];
 
-	function HomeController( $q, dataService ){
+	function HomeController( $q ) {
 
 		// hang all "$scope" type stuff off of vm (view model)
 		var vm = this;
@@ -23,18 +23,18 @@
 		//Activate the view (basically call all the services and log it)
 		activate();
 
-		function activate(){
+		function activate() {
 			// promises should be an array of function calls i.e. [getItems(),getPreferences()]
 			var promises = [ getAwesomeThings() ];
 
 			return $q.all( promises )
-				.then( function(){
+				.then( function() {
 					console.log( 'Home View Loaded' );
 				}
 			);
 		}
 
-		function getAwesomeThings(){
+		function getAwesomeThings() {
 			//Should be pulling this from a service
 			var awesomeThings = [ {
 				                      'title': 'AngularJS',
@@ -96,7 +96,7 @@
 				                      'description': 'Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass.',
 				                      'logo': 'node-sass.png'
 			                      } ];
-			awesomeThings.map( function( awesomeThing ){
+			awesomeThings.map( function( awesomeThing ) {
 				awesomeThing.rank = Math.random();
 			} );
 			// expose awesomeThings to the view
