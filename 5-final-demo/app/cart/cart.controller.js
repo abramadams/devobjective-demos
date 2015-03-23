@@ -14,7 +14,7 @@
 
 		// Exports.
 		vm.cart = [];
-		vm.cartTotal = parseFloat( cartService.cartTotal() );
+		vm.getCartTotal = getCartTotal;
 		vm.updateQuantity = updateQuantity;
 		vm.removeItem = removeItem;
 		vm.checkout = checkout;
@@ -36,6 +36,10 @@
 
 		function getCart(){
 			vm.cart = cartService.getCart();
+		}
+
+		function getCartTotal(){
+			return parseFloat( cartService.cartTotal() );
 		}
 
 		function updateQuantity( cartIndex, quantity ){

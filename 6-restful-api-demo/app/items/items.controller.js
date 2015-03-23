@@ -13,7 +13,6 @@
 		var vm = this;
 
 		// Exports.
-		vm.items = [];
 		vm.addButtonText = "Add to Cart";
 		vm.addToCart = addToCart;
 

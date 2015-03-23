@@ -60,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    Cart Total: {{vm.cartTotal | currency : '$'}}
+                    Cart Total: {{vm.getCartTotal() | currency : '$'}}
                     <a ng-click="vm.emptyCart()" class="btn btn-danger btn-xs pull-right">
                         Empty Cart
                         <span class="glyphicon glyphicon-trash"></span>
