@@ -14,6 +14,7 @@
 		if( !( storage.get( itemsStore ) instanceof Array ) ){
 			storage.set( itemsStore, [] );
 		}
+		var baseUrl = 'http://devobjective.demo/api/index.cfm';
 
 		return {
 			itemsStore: itemsStore,
@@ -142,9 +143,9 @@
 
 		function checkout( customer ){
 			var self = this;
-			var checkout = $http( {
+			return $http( {
 				method: 'post',
-				url: '/api/index.cfm/checkout',
+				url: baseUrl + '/checkout',
 				data: {
 					cart: {
 						items: this.getCart(),
@@ -164,8 +165,6 @@
 				console.warn( data, status, headers, config );
 				return data;
 			} );
-
-			return checkout;
 
 		}
 

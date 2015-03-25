@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <label>Quantity</label>
                         <span ng-show="vm.cartIndex !== undefined" class="label label-info">
-                            <iclass="glyphicon glyphicon-exclamation-sign"></i> Item In Cart
+                            <i class="glyphicon glyphicon-exclamation-sign"></i> Item In Cart
                         </span>
 
                         <input spinner item="vm.items" value="vm.items.quantity"/>
@@ -41,7 +41,7 @@
                         {{ vm.addButtonText }}
                         <span class="glyphicon glyphicon-shopping-cart"></span>
                     </button>
-                    <button class="btn btn-danger btn-block" ng-hide="cartCount() == 0" ui-sref="cart">
+                    <button class="btn btn-danger btn-block" ng-show="cartCount()" ui-sref="cart">
                         Checkout
                         <span class="glyphicon glyphicon-credit-card"></span>
                     </button>

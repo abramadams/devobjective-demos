@@ -2,8 +2,8 @@
 		Component	: dao.cfc (MySQL Specific)
 		Author		: Abram Adams
 		Date		: 1/2/2007
-		@version 0.0.68
-	   	@updated 3/13/2015
+		@version 0.0.69
+	   	@updated 3/25/2015
 		Description	: Targeted database access object that will
 		control all MySQL specific database interaction.
 		This component will use MySQL syntax to perform general

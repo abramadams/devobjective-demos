@@ -41,7 +41,7 @@
                         {{ vm.addButtonText }}
                         <span class="glyphicon glyphicon-shopping-cart"></span>
                     </button>
-                    <button class="btn btn-danger btn-block" ng-hide="cartCount()" ui-sref="cart">
+                    <button class="btn btn-danger btn-block" ng-show="cartCount()" ui-sref="cart">
                         Checkout
                         <span class="glyphicon glyphicon-credit-card"></span>
                     </button>

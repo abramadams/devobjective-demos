@@ -43,7 +43,7 @@
 					vm.items.quantity = 1;
 
 					// grab the index of the current item, if it exists
-					vm.cartIndex = cartService.getItemIndex( vm.items.id );
+					vm.cartIndex = cartService.getItemIndex( vm.items.Id );
 
 					if( vm.cartIndex !== undefined ){
 						//Item existed in cart
