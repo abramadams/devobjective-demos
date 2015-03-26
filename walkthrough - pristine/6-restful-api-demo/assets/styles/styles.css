@@ -123,6 +123,13 @@ h2 {
     padding: 10px;
 }
 
+.random-deal-link {
+    position: absolute;
+    bottom: 0px;
+    margin-bottom: 25px;
+    font-size: 18pt;
+}
+
 /* fire effect*/
 
 .fire {
@@ -222,3 +229,4 @@ h2 {
         10px -90px 80px #973716;
     }
 }
+

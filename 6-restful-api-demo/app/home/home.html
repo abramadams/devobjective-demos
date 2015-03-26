@@ -21,15 +21,16 @@
 <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="item in vm.items | orderBy:'rank'| limitTo:3">
         <div class="thumbnail">
-            <a ui-sref="item({id:item.linkid})">
+            <a ui-sref="item({id:item.linkId})">
                 <img class="pull-right" ng-src="assets/images/products/{{item.thumbnail}}" alt="{{item.name}}"/>
             </a>
 
             <div class="caption">
                 <h4>{{item.name}}</h4>
 
-                <p><a ui-sref="item({id:item.linkid})">View Details</a></p>
+                <p><a ui-sref="item({id:item.linkid})" class="random-deal-link">View Details</a></p>
             </div>
         </div>
     </div>
 </div>
+
