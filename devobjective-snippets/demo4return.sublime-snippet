@@ -1,0 +1,15 @@
+
+<snippet>
+	<content><![CDATA[
+return {
+    getAwesomeThings: getAwesomeThings,
+    getItems: getItems
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo4return</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 4 Data Service return</description>
+</snippet>

@@ -1,0 +1,13 @@
+
+<snippet>
+	<content><![CDATA[
+    <!-- Content will render here... -->
+    <ui-view></ui-view>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo3uiview</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 3 UI View tag</description>
+</snippet>

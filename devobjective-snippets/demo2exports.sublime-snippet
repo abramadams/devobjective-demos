@@ -1,0 +1,20 @@
+
+<snippet>
+	<content><![CDATA[
+vm.items = [
+	{ name: "item 1" },
+	{ name: "item 2" },
+	{ name: "item 3" },
+	{ name: "item 4" },
+	{ name: "item 5" }
+];
+vm.addItem = addItem;
+vm.removeItem = removeItem;
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo2exports</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>vm exports for demo 2 controller</description>
+</snippet>

@@ -1,0 +1,35 @@
+
+<snippet>
+	<content><![CDATA[
+			             // Checkout states (uses nested states)
+			             .state( 'checkout', {
+				             url: '/checkout',
+				             abstract: true,
+				             templateUrl: 'app/checkout/checkout.html',
+				             controller: 'CheckoutController',
+				             controllerAs: 'vm'
+			             } )
+			             .state( 'checkout.profile', {
+				             url: '',
+				             templateUrl: 'app/checkout/checkout.profile.html'
+			             } )
+			             .state( 'checkout.address', {
+				             url: '/address',
+				             templateUrl: 'app/checkout/checkout.address.html'
+			             } )
+			             .state( 'checkout.payment', {
+				             url: '/payment',
+				             templateUrl: 'app/checkout/checkout.payment.html'
+			             } )
+			             .state( 'checkout.confirmation', {
+				             url: '/confirmation',
+				             templateUrl: 'app/checkout/checkout.confirmation.html'
+			             } )
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5checkoutroutes</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 Checkout Routes</description>
+</snippet>

@@ -1,0 +1,17 @@
+
+<snippet>
+	<content><![CDATA[
+(function(){
+	"use strict"
+
+	angular.module( 'app', [] );
+
+}());
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo1js</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 1 JS file</description>
+</snippet>

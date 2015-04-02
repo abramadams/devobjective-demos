@@ -1,0 +1,21 @@
+
+<snippet>
+	<content><![CDATA[
+<!-- for responsive menu -->
+<script src="libs/angular-bootstrap/ui-bootstrap.min.js"></script>
+<!-- required by angularLocalStorage -->
+<script src="libs/angular-cookies/angular-cookies.min.js"></script>
+<!-- used to store cart info -->
+<script src="libs/angularLocalStorage/src/angularLocalStorage.js"></script>
+<!-- used to safely render html content via angular -->
+<script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+<!-- used to for masking and validation of CC input -->
+<script src="libs/angular-payments/lib/angular-payments.min.js"></script>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5thirdparty</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 3rd party includes</description>
+</snippet>

@@ -1,0 +1,21 @@
+
+<snippet>
+	<content><![CDATA[
+function addItem(){
+    if( vm.name && vm.name.length > 0 ){
+        vm.items.push( { name: vm.name } );
+    }
+    vm.name = "";
+}
+
+function removeItem( index ){
+    vm.items.splice( index, 1 );
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo2functions</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Functions for demo 2 controller</description>
+</snippet>

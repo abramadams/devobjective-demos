@@ -1,0 +1,17 @@
+
+<snippet>
+	<content><![CDATA[
+    if( vm.cartIndex !== undefined ){
+        cartService.updateQuantity( vm.cartIndex, parseInt( vm.items.quantity, 10 ) );
+    }else{
+        vm.cartIndex = cartService.addItem( vm.items, parseInt( vm.items.quantity, 10 ) );
+    }
+    vm.addButtonText = "Update Cart";
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5addtocart</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 Add to cart function</description>
+</snippet>

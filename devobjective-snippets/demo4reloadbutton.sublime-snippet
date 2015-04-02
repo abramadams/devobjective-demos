@@ -1,0 +1,17 @@
+
+<snippet>
+	<content><![CDATA[
+
+<div class="row">
+    <button class="btn btn-sm btn-success pull-right" ng-click="vm.reloadItems()">
+        <i class="glyphicon glyphicon-refresh"></i> Reload
+    </button>
+</div>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo4reloadbutton</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 4 Reload Button</description>
+</snippet>

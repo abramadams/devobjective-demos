@@ -1,0 +1,36 @@
+
+<snippet>
+	<content><![CDATA[
+function getCart(){
+    vm.cart = cartService.getCart();
+}
+
+function getCartTotal(){
+    return parseFloat( cartService.cartTotal() );
+}
+
+function updateQuantity( cartIndex, quantity ){
+    cartService.updateQuantity( cartIndex, quantity );
+}
+
+function removeItem( cartIndex ){
+    cartService.removeItem( cartIndex );
+    getCart();
+}
+
+function emptyCart(){
+    cartService.emptyCart();
+    getCart();
+}
+
+function checkout(){
+    $state.go( 'checkout.profile' );
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5cartfuncs</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 Cart funcs</description>
+</snippet>

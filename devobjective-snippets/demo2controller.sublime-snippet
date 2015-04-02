@@ -1,0 +1,26 @@
+
+<snippet>
+	<content><![CDATA[
+(function(){
+	'use strict';
+
+	//Registers controller with "app"
+	angular.module( 'app' )
+		.controller( 'ItemsController', ItemsController );
+
+	//Injects dependencies
+	ItemsController.$inject = [ '$q' ];
+
+	function ItemsController( $q ){
+
+	}
+
+})();
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo2controller</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 2 controller shell</description>
+</snippet>

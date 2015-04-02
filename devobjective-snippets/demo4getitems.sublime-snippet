@@ -1,0 +1,18 @@
+
+<snippet>
+	<content><![CDATA[
+function getItems(){
+    itemService.getItems()
+        .then( function( response ){
+            vm.items = response.data;
+        } );
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo4getitems</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 4 Get Items function</description>
+</snippet>

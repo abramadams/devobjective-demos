@@ -1,0 +1,43 @@
+
+<snippet>
+	<content><![CDATA[
+(function(){
+	'use strict';
+
+	//Registers controller with "app"
+	angular.module( 'app' )
+		.controller( 'CartController', CartController );
+
+	CartController.$inject = [ '$q', '$state', 'cartService' ];
+
+	function CartController( $q, $state, cartService ){
+
+		// hang all "$scope" type stuff off of vm (view model)
+		var vm = this;
+
+		// Exports.
+
+		//Activate the view (basically call all the services and log it)
+		activate();
+
+		function activate(){
+			// promises should be an array of function calls i.e. [getItems(),getPreferences()]
+			var promises = [ ];
+
+			return $q.all( promises )
+				.then( function(){
+					console.log( 'Cart View Loaded' );
+				}
+			);
+		}
+
+	}
+})();
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5cartcontroller</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 Cart conroller "shell"</description>
+</snippet>

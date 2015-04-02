@@ -1,0 +1,20 @@
+
+<snippet>
+	<content><![CDATA[
+// grab the index of the current item, if it exists
+vm.cartIndex = cartService.getItemIndex( vm.items.id );
+
+if( vm.cartIndex !== undefined ){
+    //Item existed in cart
+    var cartItem = cartService.getItem( vm.cartIndex );
+    vm.items.quantity = cartItem.quantity;
+    vm.addButtonText = "Update Cart";
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5itemcart</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 Item cartService logic</description>
+</snippet>

@@ -1,0 +1,15 @@
+
+<snippet>
+	<content><![CDATA[
+<!--3rd party libs-->
+<script src="angular/angular.min.js"></script>
+<!--App module-->
+<script src="index.js"></script>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo1scripts</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 1 Script includes</description>
+</snippet>

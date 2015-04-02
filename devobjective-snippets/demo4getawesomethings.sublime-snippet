@@ -1,0 +1,24 @@
+
+<snippet>
+	<content><![CDATA[
+function getAwesomeThings(){
+    //Should be pulling this from a service
+    var awesomeThings = [];
+    itemService.getAwesomeThings()
+        .then( function( response ){
+            awesomeThings = response.data;
+            awesomeThings.map( function( awesomeThing ){
+                awesomeThing.rank = Math.random();
+            } );
+            vm.awesomeThings = awesomeThings;
+
+        } );
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo4getawesomethings</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 4 getAwesomeThings function</description>
+</snippet>

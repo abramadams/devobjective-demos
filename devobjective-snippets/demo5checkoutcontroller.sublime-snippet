@@ -1,0 +1,42 @@
+
+<snippet>
+	<content><![CDATA[
+(function(){
+	'use strict';
+
+	//Registers controller with "app"
+	angular.module( 'app' )
+		.controller( 'CheckoutController', CheckoutController );
+
+	CheckoutController.$inject = [ '$q', '$state', 'cartService' ];
+
+	function CheckoutController( $q, $state, cartService ){
+		// hang all "$scope" type stuff off of vm (view model)
+		var vm = this;
+
+		// Exports.
+		
+		//Activate the view (basically call all the services and log it)
+		activate();
+
+		function activate(){
+			// promises should be an array of function calls i.e. [getBulls(),getPreferences()]
+			var promises = [];
+
+			return $q.all( promises )
+				.then( function(){
+					console.log( 'Checkout View Loaded' );
+				}
+			);
+		}
+	}
+})();
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5checkoutcontroller</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 Checkout controller "shell"</description>
+</snippet>

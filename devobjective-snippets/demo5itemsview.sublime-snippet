@@ -1,0 +1,29 @@
+
+<snippet>
+	<content><![CDATA[
+<div class="row">
+    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="item in vm.items">
+        <div class="thumbnail">
+            <img class="pull-left" ng-src="assets/images/products/{{item.thumbnail}}" alt="{{item.name}}"
+                 ui-sref="item({id:item.linkId})" ui-sref-opts="{reload: true}">
+
+            <div class="caption">
+                <h4 class="pull-right">{{item.price | currency}}</h4>
+                <h4><a ui-sref="item({id:item.linkId})">{{item.name}}</a>
+                </h4>
+
+                <p>{{item.description}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5itemsview</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 Items view</description>
+</snippet>

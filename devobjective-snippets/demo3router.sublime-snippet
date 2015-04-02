@@ -1,0 +1,32 @@
+
+<snippet>
+	<content><![CDATA[
+    .config( function( $stateProvider, $urlRouterProvider ){
+        //Default state
+        $urlRouterProvider.otherwise( '/home' );
+    
+        $stateProvider
+    
+            .state( 'home', {
+                url: '/home',
+                templateUrl: 'app/home/home.html',
+                controller: 'HomeController',
+                controllerAs: 'vm'
+            } )
+    
+            .state( 'items', {
+                url: '/items',
+                templateUrl: 'app/items/items.html',
+                controller: 'ItemsController',
+                controllerAs: 'vm'
+            } );
+    
+    } )
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo3router</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 3 router config</description>
+</snippet>

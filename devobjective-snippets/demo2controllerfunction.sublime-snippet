@@ -1,0 +1,38 @@
+
+<snippet>
+	<content><![CDATA[
+
+		// hang all "$scope" type stuff off of vm (view model)
+		var vm = this;
+
+		// Exports
+		
+
+		//Activate the view (basically call all the services and log it)
+		activate();
+		
+		
+		///////////////////////////////////////////////////////////////////
+		// IMPLEMENTATION DETAILS
+		///////////////////////////////////////////////////////////////////
+
+		function activate(){
+			// promises should be an array of function calls i.e. [getItems(),getPreferences()]
+			var promises = [];
+
+			return $q.all( promises )
+				.then( function(){
+					console.log( 'Items View Loaded' );
+				}
+			);
+		}
+
+	
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo2controllerfunction</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 2 controller function</description>
+</snippet>

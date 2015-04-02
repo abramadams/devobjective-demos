@@ -1,0 +1,13 @@
+
+<snippet>
+	<content><![CDATA[
+vm.addButtonText = "Add to Cart";
+vm.addToCart = addToCart;
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5itemsexports</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 exports for items controller</description>
+</snippet>

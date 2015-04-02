@@ -1,0 +1,29 @@
+
+<snippet>
+	<content><![CDATA[
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+Hello {{name}}!<br/>
+<input type="text" ng-model="name">
+
+<!--3rd party libs-->
+<script src="angular/angular.min.js"></script>
+<!--App module-->
+<script src="index.js"></script>
+
+</body>
+</html>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo2</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 2 Index.html</description>
+</snippet>

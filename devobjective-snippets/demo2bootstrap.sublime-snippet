@@ -1,0 +1,15 @@
+
+<snippet>
+	<content><![CDATA[
+<!-- load bootstrap -->
+<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+<!--custom styles-->
+<link rel="stylesheet" href="assets/styles/styles.css">
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo2bootstrap</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 2 Add Bootstrap</description>
+</snippet>

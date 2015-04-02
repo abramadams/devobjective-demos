@@ -1,0 +1,16 @@
+
+<snippet>
+	<content><![CDATA[
+<li ui-sref-active="active">
+    <a ui-sref="cart" class="glyphicon glyphicon-shopping-cart">
+        <span class="badge" ng-if="cartCount()">{{cartCount()}}</span>
+    </a>
+</li>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5nav</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 - Add cart to nav</description>
+</snippet>

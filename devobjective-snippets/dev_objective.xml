@@ -1,0 +1,445 @@
+<templateSet group="dev.objective">
+  <template name="demo2" value="&lt;!DOCTYPE html&gt;&#10;&lt;html ng-app=&quot;app&quot;&gt;&#10;&lt;head lang=&quot;en&quot;&gt;&#10;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#10;    &lt;title&gt;&lt;/title&gt;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;&#10;Hello {{name}}!&lt;br/&gt;&#10;&lt;input type=&quot;text&quot; ng-model=&quot;name&quot;&gt;&#10;&#10;&lt;!--3rd party libs--&gt;&#10;&lt;script src=&quot;angular/angular.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;!--App module--&gt;&#10;&lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;&#10;&#10;&lt;/body&gt;&#10;&lt;/html&gt;" description="Demo 2 Index.html" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="XML_TEXT" value="false" />
+      <option name="JSON" value="false" />
+      <option name="JAVA_CODE" value="false" />
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+      <option name="COMPLETION" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JSP" value="false" />
+      <option name="SQL" value="false" />
+      <option name="ColdFusion" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JS_EXPRESSION" value="false" />
+      <option name="JS_STATEMENT" value="false" />
+      <option name="TypeScript" value="false" />
+      <option name="GROOVY" value="false" />
+      <option name="GROOVY_EXPRESSION" value="false" />
+      <option name="GROOVY_STATEMENT" value="false" />
+      <option name="GROOVY_DECLARATION" value="false" />
+      <option name="MAVEN" value="false" />
+      <option name="ASPECTJ" value="false" />
+      <option name="ACTION_SCRIPT" value="false" />
+      <option name="MXML" value="false" />
+      <option name="OGNL" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="GSP" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="demo1js" value="(function(){&#10;&#9;&quot;use strict&quot;&#10;&#10;&#9;angular.module( 'app', [] );&#10;&#10;}());" description="Demo 1 JS file" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="XML_TEXT" value="false" />
+      <option name="JSON" value="false" />
+      <option name="JAVA_CODE" value="false" />
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+      <option name="COMPLETION" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JSP" value="false" />
+      <option name="SQL" value="false" />
+      <option name="ColdFusion" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+      <option name="TypeScript" value="false" />
+      <option name="GROOVY" value="false" />
+      <option name="GROOVY_EXPRESSION" value="false" />
+      <option name="GROOVY_STATEMENT" value="false" />
+      <option name="GROOVY_DECLARATION" value="false" />
+      <option name="MAVEN" value="false" />
+      <option name="ASPECTJ" value="false" />
+      <option name="ACTION_SCRIPT" value="false" />
+      <option name="MXML" value="false" />
+      <option name="OGNL" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="GSP" value="false" />
+      <option name="HAML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="demo2-old" value="&lt;!DOCTYPE html&gt;&#10;&lt;html ng-app=&quot;app&quot;&gt;&#10;&lt;head lang=&quot;en&quot;&gt;&#10;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#10;    &lt;title&gt;&lt;/title&gt;&#10;&lt;/head&gt;&#10;&lt;body ng-controller=&quot;MainController as vm&quot;&gt;&#10;&#10;&lt;input type=&quot;text&quot; ng-model=&quot;vm.name&quot;&gt;&#10;&lt;button ng-click=&quot;vm.addItem()&quot;&gt;Add&lt;/button&gt;&#10;&#10;&lt;ul&gt;&#10;    &lt;li ng-repeat=&quot;item in vm.items&quot;&gt;{{item.name}}&#10;        &lt;button ng-click=&quot;vm.removeItem($index)&quot;&gt;Delete&lt;/button&gt;&#10;    &lt;/li&gt;&#10;&lt;/ul&gt;&#10;&#10;&#10;&lt;!--3rd party libs--&gt;&#10;&lt;script src=&quot;angular/angular.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;!--App module--&gt;&#10;&lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;&#10;&lt;!--Main controller--&gt;&#10;&lt;script src=&quot;main.controller.js&quot;&gt;&lt;/script&gt;&#10;&#10;&lt;/body&gt;&#10;&lt;/html&gt;" description="Demo 2" toReformat="false" toShortenFQNames="true" deactivated="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo2controller" value="(function(){&#10;&#9;'use strict';&#10;&#10;&#9;//Registers controller with &quot;app&quot;&#10;&#9;angular.module( 'app' )&#10;&#9;&#9;.controller( 'ItemsController', ItemsController );&#10;&#10;&#9;//Injects dependencies&#10;&#9;ItemsController.$inject = [ '$q' ];&#10;&#10;&#9;function ItemsController( $q ){&#10;&#10;&#9;}&#10;&#10;})();" description="Demo 2 controller shell" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo2exports" value="vm.items = [&#10;&#9;{ name: &quot;item 1&quot; },&#10;&#9;{ name: &quot;item 2&quot; },&#10;&#9;{ name: &quot;item 3&quot; },&#10;&#9;{ name: &quot;item 4&quot; },&#10;&#9;{ name: &quot;item 5&quot; }&#10;];&#10;vm.addItem = addItem;&#10;vm.removeItem = removeItem;" description="vm exports for demo 2 controller" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo2functions" value="function addItem(){&#10;    if( vm.name &amp;&amp; vm.name.length &gt; 0 ){&#10;        vm.items.push( { name: vm.name } );&#10;    }&#10;    vm.name = &quot;&quot;;&#10;}&#10;&#10;function removeItem( index ){&#10;    vm.items.splice( index, 1 );&#10;}" description="Functions for demo 2 controller" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo3router" value="    .config( function( $stateProvider, $urlRouterProvider ){&#10;        //Default state&#10;        $urlRouterProvider.otherwise( '/home' );&#10;    &#10;        $stateProvider&#10;    &#10;            .state( 'home', {&#10;                url: '/home',&#10;                templateUrl: 'app/home/home.html',&#10;                controller: 'HomeController',&#10;                controllerAs: 'vm'&#10;            } )&#10;    &#10;            .state( 'items', {&#10;                url: '/items',&#10;                templateUrl: 'app/items/items.html',&#10;                controller: 'ItemsController',&#10;                controllerAs: 'vm'&#10;            } );&#10;    &#10;    } )" description="Demo 3 router config" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo1body" value="Hello {{name}}!&#10;&lt;br/&gt;&#10;&lt;input ng-model=&quot;name&quot;&gt;&#10;" description="Demo 1 Body content" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo1scripts" value="&lt;!--3rd party libs--&gt;&#10;&lt;script src=&quot;angular/angular.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;!--App module--&gt;&#10;&lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;" description="Demo 1 Script includes" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo2scripts" value="&lt;!--Items controller--&gt;&#10;&lt;script src=&quot;app/items/items.controller.js&quot;&gt;&lt;/script&gt;" description="Demo 2 Script Includes" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JS_EXPRESSION" value="false" />
+      <option name="JS_STATEMENT" value="false" />
+    </context>
+  </template>
+  <template name="demo2body" value="&lt;div class=&quot;container&quot;&gt;&#10;    &lt;form ng-submit=&quot;vm.addItem()&quot;&gt;&#10;        &lt;div class=&quot;row&quot;&gt;&#10;            &lt;div class=&quot;col-lg-6&quot;&gt;&#10;                &lt;div class=&quot;input-group&quot;&gt;&#10;                    &lt;input type=&quot;text&quot; ng-model=&quot;vm.name&quot; placeholder=&quot;Add an item&quot; class=&quot;form-control col-sm-8&quot;&gt;&#10;                    &lt;span class=&quot;input-group-btn&quot;&gt;&#10;                    &lt;button class=&quot;btn btn-primary&quot;&gt;Add&lt;/button&gt;&#10;                &lt;/span&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;    &lt;/form&gt;&#10;&#10;    &lt;hr&gt;&#10;    &lt;div class=&quot;row&quot;&gt;&#10;        &lt;ul class=&quot;list-group&quot;&gt;&#10;            &lt;li class=&quot;list-group-item&quot; ng-repeat=&quot;item in vm.items&quot;&gt;{{item.name}}&#10;                &lt;a class=&quot;btn btn-xs btn-danger pull-right&quot; ng-click=&quot;vm.removeItem($index)&quot;&gt;&#10;                    &lt;i class=&quot;glyphicon glyphicon-trash&quot;&gt;&lt;/i&gt;&#10;                &lt;/a&gt;&#10;            &lt;/li&gt;&#10;        &lt;/ul&gt;&#10;    &lt;/div&gt;&#10;&lt;/div&gt;" description="Demo 2 Body" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo2ngcontroller" value="ng-controller=&quot;MainController as vm&quot;" description="Demo 2 ng-controller directive" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo2controllerfunction" value="&#10;&#9;&#9;// hang all &quot;$scope&quot; type stuff off of vm (view model)&#10;&#9;&#9;var vm = this;&#10;&#10;&#9;&#9;// Exports&#10;&#9;&#9;&#10;&#10;&#9;&#9;//Activate the view (basically call all the services and log it)&#10;&#9;&#9;activate();&#10;&#9;&#9;&#10;&#9;&#9;&#10;&#9;&#9;///////////////////////////////////////////////////////////////////&#10;&#9;&#9;// IMPLEMENTATION DETAILS&#10;&#9;&#9;///////////////////////////////////////////////////////////////////&#10;&#10;&#9;&#9;function activate(){&#10;&#9;&#9;&#9;// promises should be an array of function calls i.e. [getItems(),getPreferences()]&#10;&#9;&#9;&#9;var promises = [];&#10;&#10;&#9;&#9;&#9;return $q.all( promises )&#10;&#9;&#9;&#9;&#9;.then( function(){&#10;&#9;&#9;&#9;&#9;&#9;console.log( 'Items View Loaded' );&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;);&#10;&#9;&#9;}&#10;&#10;&#9;" description="Demo 2 controller function" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo3uiview" value="    &lt;!-- Content will render here... --&gt;&#10;    &lt;ui-view&gt;&lt;/ui-view&gt;" description="Demo 3 UI View tag" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo4return" value="return {&#10;    getAwesomeThings: getAwesomeThings,&#10;    getItems: getItems&#10;};" description="Demo 4 Data Service return" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo4functions" value="function getAwesomeThings(){&#10;    return $http.get( 'data/awesomethings.json' )&#10;}&#10;&#10;function getItems(){&#10;    return $http.get( 'data/items.json' )&#10;}&#10;" description="Demo 4 Data Service Functions" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5constscript" value="&lt;!--App constants--&gt;&#10;&lt;script src=&quot;app/services/constants.js&quot;&gt;&lt;/script&gt;&#10;" description="Demo 5 Script include for constants" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="false" />
+      <option name="JS_EXPRESSION" value="false" />
+      <option name="JS_STATEMENT" value="false" />
+    </context>
+  </template>
+  <template name="demo5cartservicescript" value="&lt;script src=&quot;app/services/cart.service.js&quot;&gt;&lt;/script&gt;" description="Demo 5 cart service script include" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5cartcontrollerscript" value="&lt;script src=&quot;app/cart/cart.controller.js&quot;&gt;&lt;/script&gt;" description="Demo 5 Cart Controller script includes" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5directivesscript" value="&lt;!--Directives--&gt;&#10;&lt;script src=&quot;app/common/widgets/spinner.directive.js&quot;&gt;&lt;/script&gt;" description="Demo 5 Directives script include" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5thirdparty" value="&lt;!-- for responsive menu --&gt;&#10;&lt;script src=&quot;libs/angular-bootstrap/ui-bootstrap.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;!-- required by angularLocalStorage --&gt;&#10;&lt;script src=&quot;libs/angular-cookies/angular-cookies.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;!-- used to store cart info --&gt;&#10;&lt;script src=&quot;libs/angularLocalStorage/src/angularLocalStorage.js&quot;&gt;&lt;/script&gt;&#10;&lt;!-- used to safely render html content via angular --&gt;&#10;&lt;script src=&quot;libs/angular-sanitize/angular-sanitize.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;!-- used to for masking and validation of CC input --&gt;&#10;&lt;script src=&quot;libs/angular-payments/lib/angular-payments.min.js&quot;&gt;&lt;/script&gt;" description="Demo 5 3rd party includes" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5nav" value="&lt;li ui-sref-active=&quot;active&quot;&gt;&#10;    &lt;a ui-sref=&quot;cart&quot; class=&quot;glyphicon glyphicon-shopping-cart&quot;&gt;&#10;        &lt;span class=&quot;badge&quot; ng-if=&quot;cartCount()&quot;&gt;{{cartCount()}}&lt;/span&gt;&#10;    &lt;/a&gt;&#10;&lt;/li&gt;" description="Demo 5 - Add cart to nav" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5moduleinject" value="/* Angular &amp; 3rd Party modules */&#10;&#9;&#9;'ui.router',&#10;&#9;&#9;'ui.bootstrap',&#10;&#9;&#9;'angularLocalStorage',&#10;&#9;&#9;'ngSanitize',&#10;&#9;&#9;'angularPayments',&#10;&#9;&#9;/* app specific modules */&#10;&#9;&#9;'app.widgets',&#9;&#9;&#10;&#9;&#9;'app.services.item'" description="Demo 5 module inject" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutroutes" value="&#9;&#9;&#9;             // Checkout states (uses nested states)&#10;&#9;&#9;&#9;             .state( 'checkout', {&#10;&#9;&#9;&#9;&#9;             url: '/checkout',&#10;&#9;&#9;&#9;&#9;             abstract: true,&#10;&#9;&#9;&#9;&#9;             templateUrl: 'app/checkout/checkout.html',&#10;&#9;&#9;&#9;&#9;             controller: 'CheckoutController',&#10;&#9;&#9;&#9;&#9;             controllerAs: 'vm'&#10;&#9;&#9;&#9;             } )&#10;&#9;&#9;&#9;             .state( 'checkout.profile', {&#10;&#9;&#9;&#9;&#9;             url: '',&#10;&#9;&#9;&#9;&#9;             templateUrl: 'app/checkout/checkout.profile.html'&#10;&#9;&#9;&#9;             } )&#10;&#9;&#9;&#9;             .state( 'checkout.address', {&#10;&#9;&#9;&#9;&#9;             url: '/address',&#10;&#9;&#9;&#9;&#9;             templateUrl: 'app/checkout/checkout.address.html'&#10;&#9;&#9;&#9;             } )&#10;&#9;&#9;&#9;             .state( 'checkout.payment', {&#10;&#9;&#9;&#9;&#9;             url: '/payment',&#10;&#9;&#9;&#9;&#9;             templateUrl: 'app/checkout/checkout.payment.html'&#10;&#9;&#9;&#9;             } )&#10;&#9;&#9;&#9;             .state( 'checkout.confirmation', {&#10;&#9;&#9;&#9;&#9;             url: '/confirmation',&#10;&#9;&#9;&#9;&#9;             templateUrl: 'app/checkout/checkout.confirmation.html'&#10;&#9;&#9;&#9;             } )" description="Demo 5 Checkout Routes" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5run" value=".run( [ '$rootScope', 'cartService',&#10;&#9;          function( $rootScope, cartService ){&#10;&#9;&#9;          //simple toggle for mobile nav&#10;&#9;&#9;          $rootScope.isCollapsed = true;&#10;&#9;&#9;          &#10;&#9;&#9;          //add cart count to navigation badge&#10;&#9;&#9;          $rootScope.cartCount = function(){ return cartService.totalItems() };&#10;&#10;&#9;          } ] )" description="Demo 5 Add run() to index.js" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5itemsview" value="&lt;div class=&quot;row&quot;&gt;&#10;    &lt;div class=&quot;col-sm-4 col-lg-4 col-md-4&quot; ng-repeat=&quot;item in vm.items&quot;&gt;&#10;        &lt;div class=&quot;thumbnail&quot;&gt;&#10;            &lt;img class=&quot;pull-left&quot; ng-src=&quot;assets/images/products/{{item.thumbnail}}&quot; alt=&quot;{{item.name}}&quot;&#10;                 ui-sref=&quot;item({id:item.linkId})&quot; ui-sref-opts=&quot;{reload: true}&quot;&gt;&#10;&#10;            &lt;div class=&quot;caption&quot;&gt;&#10;                &lt;h4 class=&quot;pull-right&quot;&gt;{{item.price | currency}}&lt;/h4&gt;&#10;                &lt;h4&gt;&lt;a ui-sref=&quot;item({id:item.linkId})&quot;&gt;{{item.name}}&lt;/a&gt;&#10;                &lt;/h4&gt;&#10;&#10;                &lt;p&gt;{{item.description}}&lt;/p&gt;&#10;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;&lt;/div&gt;&#10;" description="Demo 5 Items view" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5getitem" value="// Return single item&#10;if( itemId ){&#10;    return itemService.getItem( itemId ).then( function( data ){&#10;&#10;        // data returned from getItem is an array containing the item we requested&#10;        vm.items = data[ 0 ];&#10;        // set default quantity to 1&#10;        vm.items.quantity = 1;&#10;&#10;    } );&#10;}" description="Demo 5 getItem function" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5addtocart" value="    if( vm.cartIndex !== undefined ){&#10;        cartService.updateQuantity( vm.cartIndex, parseInt( vm.items.quantity, 10 ) );&#10;    }else{&#10;        vm.cartIndex = cartService.addItem( vm.items, parseInt( vm.items.quantity, 10 ) );&#10;    }&#10;    vm.addButtonText = &quot;Update Cart&quot;;" description="Demo 5 Add to cart function" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5itemsexports" value="vm.addButtonText = &quot;Add to Cart&quot;;&#10;vm.addToCart = addToCart;" description="Demo 5 exports for items controller" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5itemview" value="&lt;section class=&quot;panel panel-default&quot;&gt;&#10;    &lt;div class=&quot;panel-heading&quot;&gt;&#10;        &lt;strong&gt;&#10;            &lt;span class=&quot;glyphicon glyphicon-eye-open the-eye&quot;&gt;&lt;/span&gt;&#10;            &amp;nbsp;{{ vm.items.name }} {{ vm.items.price | currency : '$' }}&#10;        &lt;/strong&gt;&#10;    &lt;/div&gt;&#10;&#10;    &lt;div class=&quot;panel-body&quot;&gt;&#10;&#10;        &lt;div class=&quot;row&quot;&gt;&#10;            &lt;div class=&quot;col-md-8 col-md-offset-2&quot;&gt;&#10;                &lt;section class=&quot;panel panel-box&quot;&gt;&#10;                    &lt;img ng-src=&quot;assets/images/products/{{vm.items.image}}&quot; class=&quot;item-image&quot;&#10;                         alt=&quot;{{ vm.items.name }} : {{vm.items.description}}&quot; class=&quot;img-responsive img-thumbnail&quot;/&gt;&#10;&#10;                    &lt;div class=&quot;panel-bottom bg-reverse&quot;&gt;&#10;                        &lt;h3&gt;{{ vm.items.name }}&lt;/h3&gt;&#10;&#10;                        &lt;p ng-bind-html=&quot;vm.items.description&quot;&gt;&lt;/p&gt;&#10;&#10;                    &lt;/div&gt;&#10;                &lt;/section&gt;&#10;&#10;                &lt;form role=&quot;form&quot;&gt;&#10;                    &lt;div class=&quot;form-group&quot;&gt;&#10;                        &lt;label&gt;Quantity&lt;/label&gt;&#10;                        &lt;span ng-show=&quot;vm.cartIndex !== undefined&quot; class=&quot;label label-info&quot;&gt;&#10;                            &lt;i class=&quot;glyphicon glyphicon-exclamation-sign&quot;&gt;&lt;/i&gt; Item In Cart&#10;                        &lt;/span&gt;&#10;&#10;                        &lt;input spinner item=&quot;vm.items&quot; value=&quot;vm.items.quantity&quot;/&gt;&#10;&#10;                    &lt;/div&gt;&#10;                    &lt;div class=&quot;form-group&quot;&gt;&#10;                        &lt;label&gt;Price&lt;/label&gt;&#10;&#10;                        &lt;p class=&quot;price&quot;&gt;{{ vm.items.price * vm.items.quantity | currency : '$' }}&lt;/p&gt;&#10;                    &lt;/div&gt;&#10;                    &lt;button class=&quot;btn btn-success btn-block&quot; ng-click=&quot;vm.addToCart()&quot;&gt;&#10;                        {{ vm.addButtonText }}&#10;                        &lt;span class=&quot;glyphicon glyphicon-shopping-cart&quot;&gt;&lt;/span&gt;&#10;                    &lt;/button&gt;&#10;                    &lt;button class=&quot;btn btn-danger btn-block&quot; ng-show=&quot;cartCount()&quot; ui-sref=&quot;cart&quot;&gt;&#10;                        Checkout&#10;                        &lt;span class=&quot;glyphicon glyphicon-credit-card&quot;&gt;&lt;/span&gt;&#10;                    &lt;/button&gt;&#10;                &lt;/form&gt;&#10;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;&lt;/section&gt;&#10;&lt;section&gt;&#10;    &lt;div class=&quot;row&quot;&gt;&#10;        &lt;div class=&quot;col-md-12&quot;&gt;&#10;            &lt;button type=&quot;button&quot; class=&quot;btn btn-dark btn-block btn-direction btn-left&quot; ui-sref=&quot;items&quot;&gt;&#10;                &lt;span class=&quot;glyphicon glyphicon-arrow-left&quot;&gt;&lt;/span&gt;&#10;                Go Back to Item List&#10;            &lt;/button&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;&lt;/section&gt;&#10;&#10;" description="Demo 5 Item view" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5itemroute" value=".state( 'item', {&#10;     url: '/item/:id',&#10;     templateUrl: 'app/items/item.html',&#10;     controller: 'ItemsController',&#10;     controllerAs: 'vm'&#10; } )" description="Demo 5 item route" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5cartroute" value=".state( 'cart', {&#10;     url: '/cart',&#10;     templateUrl: 'app/cart/cart.html',&#10;     controller: 'CartController',&#10;     controllerAs: 'vm'&#10; } )" description="Demo 5 cart route" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5cartcontroller" value="(function(){&#10;&#9;'use strict';&#10;&#10;&#9;//Registers controller with &quot;app&quot;&#10;&#9;angular.module( 'app' )&#10;&#9;&#9;.controller( 'CartController', CartController );&#10;&#10;&#9;CartController.$inject = [ '$q', '$state', 'cartService' ];&#10;&#10;&#9;function CartController( $q, $state, cartService ){&#10;&#10;&#9;&#9;// hang all &quot;$scope&quot; type stuff off of vm (view model)&#10;&#9;&#9;var vm = this;&#10;&#10;&#9;&#9;// Exports.&#10;&#10;&#9;&#9;//Activate the view (basically call all the services and log it)&#10;&#9;&#9;activate();&#10;&#10;&#9;&#9;function activate(){&#10;&#9;&#9;&#9;// promises should be an array of function calls i.e. [getItems(),getPreferences()]&#10;&#9;&#9;&#9;var promises = [ ];&#10;&#10;&#9;&#9;&#9;return $q.all( promises )&#10;&#9;&#9;&#9;&#9;.then( function(){&#10;&#9;&#9;&#9;&#9;&#9;console.log( 'Cart View Loaded' );&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;);&#10;&#9;&#9;}&#10;&#10;&#9;}&#10;})();" description="Demo 5 Cart conroller &quot;shell&quot;" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5cartexports" value="vm.cart = [];&#10;vm.getCartTotal = getCartTotal;&#10;vm.updateQuantity = updateQuantity;&#10;vm.removeItem = removeItem;&#10;vm.checkout = checkout;&#10;vm.emptyCart = emptyCart;" description="Demo 5 Cart exports" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5cartfuncs" value="function getCart(){&#10;    vm.cart = cartService.getCart();&#10;}&#10;&#10;function getCartTotal(){&#10;    return parseFloat( cartService.cartTotal() );&#10;}&#10;&#10;function updateQuantity( cartIndex, quantity ){&#10;    cartService.updateQuantity( cartIndex, quantity );&#10;}&#10;&#10;function removeItem( cartIndex ){&#10;    cartService.removeItem( cartIndex );&#10;    getCart();&#10;}&#10;&#10;function emptyCart(){&#10;    cartService.emptyCart();&#10;    getCart();&#10;}&#10;&#10;function checkout(){&#10;    $state.go( 'checkout.profile' );&#10;}" description="Demo 5 Cart funcs" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutcontrollerscript" value="&lt;script src=&quot;app/checkout/checkout.controller.js&quot;&gt;&lt;/script&gt;" description="Demo 5 Checkout Controller script includes" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutcontroller" value="(function(){&#10;&#9;'use strict';&#10;&#10;&#9;//Registers controller with &quot;app&quot;&#10;&#9;angular.module( 'app' )&#10;&#9;&#9;.controller( 'CheckoutController', CheckoutController );&#10;&#10;&#9;CheckoutController.$inject = [ '$q', '$state', 'cartService' ];&#10;&#10;&#9;function CheckoutController( $q, $state, cartService ){&#10;&#9;&#9;// hang all &quot;$scope&quot; type stuff off of vm (view model)&#10;&#9;&#9;var vm = this;&#10;&#10;&#9;&#9;// Exports.&#10;&#9;&#9;&#10;&#9;&#9;//Activate the view (basically call all the services and log it)&#10;&#9;&#9;activate();&#10;&#10;&#9;&#9;function activate(){&#10;&#9;&#9;&#9;// promises should be an array of function calls i.e. [getBulls(),getPreferences()]&#10;&#9;&#9;&#9;var promises = [];&#10;&#10;&#9;&#9;&#9;return $q.all( promises )&#10;&#9;&#9;&#9;&#9;.then( function(){&#10;&#9;&#9;&#9;&#9;&#9;console.log( 'Checkout View Loaded' );&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;);&#10;&#9;&#9;}&#10;&#9;}&#10;})();&#10;" description="Demo 5 Checkout controller &quot;shell&quot;" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutexports" value="vm.cart = [];&#10;vm.order = vm.order || [];&#10;vm.states = [];&#10;vm.checkoutForm = {};&#10;vm.cartTotal = parseFloat( cartService.cartTotal() );&#10;&#10;vm.checkout = checkout;&#10;vm.canSubmit = canSubmit;" description="Demo 5 Checkout exports" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutfuncs" value="function getCart(){&#10;    vm.cart = cartService.getCart();&#10;}&#10;&#10;function getStates(){&#10;    vm.states = cartService.getStates();&#10;}&#10;&#10;function canSubmit(){&#10;    return vm.checkoutForm.$valid;&#10;}&#10;&#10;function checkout(){&#10;    var order = cartService.checkout( vm.checkoutForm );&#10;    vm.order = [];&#10;    if( order.status &amp;&amp; order.status == &quot;success&quot; ){&#10;        vm.cart = [];&#10;        vm.order = order;&#10;&#10;        $state.go( 'checkout.confirmation' );&#10;    }&#10;}" description="Demo 5 Checkout Controller functions" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutview" value="&lt;div class=&quot;page&quot;&gt;&#10;    &lt;!-- Back buttons --&gt;&#10;    &lt;button class=&quot;btn btn-dark btn-block&quot; ui-sref=&quot;cart&quot; ng-if=&quot;vm.order.length == 0&quot;&gt;&#10;        &lt;span class=&quot;glyphicon glyphicon-arrow-left&quot;&gt;&lt;/span&gt;&#10;        Back to Cart&#10;    &lt;/button&gt;&#10;    &lt;button class=&quot;btn btn-dark btn-block&quot; ui-sref=&quot;items&quot; ng-if=&quot;vm.order.length !== 0&quot;&gt;&#10;        &lt;span class=&quot;glyphicon glyphicon-arrow-left&quot;&gt;&lt;/span&gt;&#10;        Back to Items&#10;    &lt;/button&gt;&#10;    &lt;!-- Cart Total--&gt;&#10;    &lt;div class=&quot;callout callout-success&quot; style=&quot;padding:10px 0px 3px 5px;margin:0px;&quot; ng-if=&quot;vm.cart.length !== 0&quot;&gt;&#10;        &lt;h2&gt;Order Total: {{vm.cartTotal | currency : '$'}}&lt;/h2&gt;&#10;    &lt;/div&gt;&#10;    &lt;!-- Content--&gt;&#10;    &lt;section class=&quot;panel panel-default&quot;&gt;&#10;        &lt;div class=&quot;panel-heading&quot;&gt;&#10;            &lt;strong&gt;&#10;                &lt;span class=&quot;glyphicon glyphicon-eye-open the-eye&quot;&gt;&lt;/span&gt;&amp;nbsp;&#10;                Check Out&#10;            &lt;/strong&gt;&#10;        &lt;/div&gt;&#10;        &lt;!-- Conditional messages--&gt;&#10;        &lt;div class=&quot;alert alert-warning&quot; style=&quot;margin-bottom:0px;&quot; ng-show=&quot;!vm.canSubmit() &amp;&amp; vm.cart.length !== 0&quot;&gt;&#10;            You must fill in the required fields to complete the payment.&#10;        &lt;/div&gt;&#10;        &lt;div class=&quot;alert alert-warning&quot; ng-if=&quot;vm.cart.length == 0 &amp;&amp; vm.order.length == 0&quot;&gt;&#10;            &lt;h1&gt;&#10;                &lt;span class=&quot;glyphicon glyphicon-shopping-cart&quot;&gt;&lt;/span&gt;&#10;                Cart is Empty&#10;            &lt;/h1&gt;&#10;&#10;            &lt;div class=&quot;row spacer&quot;&gt;&#10;                &lt;div class=&quot;col-md-12&quot;&gt;&#10;                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-block btn-direction btn-left&quot; ui-sref=&quot;items&quot;&gt;&#10;                        &lt;span class=&quot;glyphicon glyphicon-circle-arrow-left&quot;&gt;&lt;/span&gt;&#10;                        Go Back to Item List&#10;                    &lt;/button&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;&#10;        &#10;    &lt;/section&gt;&#10;&#10;&#10;&lt;/div&gt;&#10;" description="Demo 5 Checkout view" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutnested" value="&lt;!--Nested Views (checkout form) --&gt;&#10;&lt;div ng-if=&quot;vm.cart.length !== 0 || vm.order.length !== 0&quot;&gt;&#10;    &lt;div class=&quot;text-center&quot; ng-if=&quot;vm.cart.length !== 0&quot;&gt;&#10;        &lt;button ui-sref-active=&quot;btn-primary&quot; ui-sref=&quot;.profile&quot;&#10;                class=&quot;btn btn-large btn-danger&quot;&gt;&#10;            &lt;span class=&quot;badge badge-primary&quot;&gt;1&lt;/span&gt; Profile&#10;        &lt;/button&gt;&#10;        &lt;button ui-sref-active=&quot;btn-primary&quot; ng-disabled=&quot;!vm.canSubmit()&quot; ui-sref=&quot;.address&quot;&#10;                class=&quot;btn btn-large btn-danger&quot;&gt;&#10;            &lt;span class=&quot;badge badge-primary&quot;&gt;2&lt;/span&gt; Address&#10;        &lt;/button&gt;&#10;        &lt;button ui-sref-active=&quot;btn-primary&quot; ng-disabled=&quot;!vm.canSubmit()&quot; ui-sref=&quot;.payment&quot;&#10;                class=&quot;btn btn-large btn-danger&quot;&gt;&#10;            &lt;span class=&quot;badge badge-primary&quot;&gt;3&lt;/span&gt; Payment&#10;        &lt;/button&gt;&#10;    &lt;/div&gt;&#10;&#10;    &lt;form name=&quot;vm.checkoutForm&quot;&gt;&#10;        &lt;!-- our nested state views will be injected here --&gt;&#10;        &lt;ui-view&gt;&lt;/ui-view&gt;&#10;    &lt;/form&gt;&#10;&#10;&lt;/div&gt;" description="Demo 5 Nested Checkout views" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutprofile" value="&lt;div class=&quot;panel-body&quot;&gt;&#10;    &lt;div&gt;&#10;        &lt;h3&gt;Customer Information&lt;/h3&gt;&#10;&#10;        &lt;div&gt;&#10;            &lt;div class=&quot;form-group&quot;&gt;&#10;                &lt;label&gt;First Name&lt;/label&gt;&#10;                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; required=&quot;&quot;&#10;                       placeholder=&quot;First Name&quot; ng-model=&quot;vm.checkoutForm.firstName&quot;&gt;&#10;                &lt;br&gt;&#10;                &lt;label&gt;Last Name&lt;/label&gt;&#10;                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; required=&quot;&quot;&#10;                       placeholder=&quot;Last Name&quot; ng-model=&quot;vm.checkoutForm.lastName&quot;&gt;&#10;            &lt;/div&gt;&#10;&#10;            &lt;div class=&quot;form-group&quot;&gt;&#10;                &lt;label&gt;Email&lt;/label&gt;&#10;                &lt;input type=&quot;email&quot; class=&quot;form-control&quot; required=&quot;&quot;&#10;                       placeholder=&quot;Email&quot; ng-model=&quot;vm.checkoutForm.email&quot;&gt;&#10;            &lt;/div&gt;&#10;&#10;            &lt;div class=&quot;row&quot;&gt;&#10;                &lt;div class=&quot;col-md-12&quot;&gt;&#10;                    &lt;a ui-sref=&quot;checkout.address&quot; ng-disabled=&quot;!vm.canSubmit()&quot;&#10;                       class=&quot;btn btn-danger btn-direction btn-right pull-right&quot;&gt;Next&#10;                        &lt;span class=&quot;glyphicon glyphicon-arrow-right&quot;&gt;&lt;/span&gt;&#10;                    &lt;/a&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;&#10;&lt;/div&gt;" description="Demo 5 Checkout.Profile view" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutaddress" value="&lt;div class=&quot;panel-body&quot;&gt;&#10;    &lt;div&gt;&#10;        &lt;h3&gt;Address Information&lt;/h3&gt;&#10;&#10;        &lt;div class=&quot;form-group&quot;&gt;&#10;            &lt;div&gt;&#10;                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Street Address 1&quot;&#10;                       ng-model=&quot;vm.checkoutForm.addressLine1&quot;&gt;&#10;                &lt;br&gt;&#10;                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Street Address 2&quot;&#10;                       ng-model=&quot;vm.checkoutForm.addressLine2&quot;&gt;&#10;                &lt;br&gt;&#10;                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;City&quot;&#10;                       ng-model=&quot;vm.checkoutForm.addressCity&quot;&gt;&#10;                &lt;br&gt;&#10;                &lt;label&gt;State&lt;/label&gt;&#10;                &lt;select ng-model=&quot;vm.checkoutForm.addressState&quot; placeholder=&quot;State&quot;&#10;                        ng-options=&quot;state.abbreviation as state.name for state in vm.states&quot;&#10;                        class=&quot;form-control&quot;&gt;&lt;/select&gt;&#10;                &lt;br&gt;&#10;                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Zip Code&quot;&#10;                       ng-model=&quot;vm.checkoutForm.addressZip&quot;&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;        &lt;div class=&quot;form-group&quot;&gt;&#10;            &lt;label&gt;Phone&lt;/label&gt;&#10;            &lt;input type=&quot;phone&quot; class=&quot;form-control&quot; placeholder=&quot;Phone Number&quot;&#10;                   ng-model=&quot;vm.checkoutForm.phone&quot;&gt;&#10;        &lt;/div&gt;&#10;        &lt;div class=&quot;row&quot;&gt;&#10;            &lt;div class=&quot;col-md-12&quot;&gt;&#10;                &lt;a ui-sref=&quot;checkout.profile&quot; ng-disabled=&quot;!vm.canSubmit()&quot;&#10;                   class=&quot;btn btn-danger btn-direction btn-left pull-left&quot;&gt;&#10;                    &lt;span class=&quot;glyphicon glyphicon-arrow-left&quot;&gt;&lt;/span&gt;&#10;                    Back&#10;                &lt;/a&gt;&#10;                &lt;a ui-sref=&quot;checkout.payment&quot; ng-disabled=&quot;!vm.canSubmit()&quot;&#10;                   class=&quot;btn btn-danger btn-direction btn-right pull-right&quot;&gt;&#10;                    Next&#10;                    &lt;span class=&quot;glyphicon glyphicon-arrow-right&quot;&gt;&lt;/span&gt;&#10;                &lt;/a&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;&lt;/div&gt;&#10;&#10;" description="Demo 5 Checkout.Address view" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutpayment" value="&lt;div class=&quot;panel-body&quot;&gt;&#10;    &lt;div&gt;&#10;        &lt;h3&gt;Payment Information (Credit Card)&lt;/h3&gt;&#10;&#10;        &lt;div&gt;&#10;&#10;            &lt;div class=&quot;form-group&quot;&gt;&#10;                &lt;label&gt;Card number&lt;/label&gt;&#10;                &lt;input type=&quot;text&quot; placeholder=&quot;Card Number&quot; name=&quot;number&quot; class=&quot;form-control&quot;&#10;                       ng-model=&quot;vm.checkoutForm.number&quot;&#10;                       payments-validate=&quot;card&quot;&#10;                       payments-format=&quot;card&quot;&#10;                       payments-type-model=&quot;vm.checkoutForm.type&quot;&#10;                       ng-class=&quot;vm.checkoutForm.number.$card.type&quot;/&gt;&#10;            &lt;/div&gt;&#10;&#10;            &lt;div class=&quot;form-group&quot;&gt;&#10;                &lt;label&gt;Expiration Date&lt;/label&gt;&#10;                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; ng-model=&quot;vm.checkoutForm.expiry&quot;&#10;                       payments-validate=&quot;expiry&quot;&#10;                       payments-format=&quot;expiry&quot;/&gt;&#10;            &lt;/div&gt;&#10;&#10;            &lt;div class=&quot;form-group&quot;&gt;&#10;                &lt;label&gt;Name on card&lt;/label&gt;&#10;                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Name as it appears on card&quot;&#10;                       ng-model=&quot;vm.checkoutForm.name&quot;&gt;&#10;            &lt;/div&gt;&#10;&#10;            &lt;div class=&quot;form-group&quot;&gt;&#10;                &lt;label&gt;CVC&lt;/label&gt;&#10;                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; ng-model=&quot;vm.checkoutForm.cvc&quot;&#10;                       payments-validate=&quot;cvc&quot;&#10;                       payments-format=&quot;cvc&quot;&#10;                       payments-type-model=&quot;vm.checkoutForm.type&quot;/&gt;&#10;            &lt;/div&gt;&#10;&#10;            &lt;div class=&quot;row&quot;&gt;&#10;                &lt;div class=&quot;col-md-12&quot;&gt;&#10;                    &lt;button ng-click=&quot;vm.checkout()&quot; class=&quot;btn btn-lg btn-block btn-success pull-right&quot;&#10;                            data-ng-disabled=&quot;!vm.canSubmit()&quot;&gt; Pay&#10;                        &lt;span class=&quot;glyphicon glyphicon-credit-card&quot;&gt;&lt;/span&gt;&#10;                    &lt;/button&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&#10;            &lt;div class=&quot;row spacer&quot;&gt;&#10;                &lt;div class=&quot;col-md-12&quot;&gt;&#10;                    &lt;a ui-sref=&quot;checkout.address&quot; ng-disabled=&quot;!vm.canSubmit()&quot;&#10;                       class=&quot;btn btn-danger btn-direction btn-left pull-left&quot;&gt;&#10;                        &lt;span class=&quot;glyphicon glyphicon-arrow-left&quot;&gt;&lt;/span&gt;&#10;                        Back&#10;                    &lt;/a&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&#10;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;&lt;/div&gt;&#10;" description="Demo 5 Checkout.Payment view" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo5checkoutconfirmation" value="&lt;div class=&quot;panel-body&quot;&gt;&#10;    &lt;div ng-if=&quot;vm.order.length == 0&quot;&gt;&#10;&#10;        &lt;div class=&quot;alert alert-warning&quot;&gt;&#10;            &lt;h1&gt;&#10;                &lt;span class=&quot;glyphicon glyphicon-warning-sign&quot;&gt;&lt;/span&gt;&#10;                Order not found!&#10;            &lt;/h1&gt;&#10;&#10;            &lt;div class=&quot;row spacer&quot;&gt;&#10;                &lt;div class=&quot;col-md-12&quot;&gt;&#10;                    &lt;button type=&quot;button&quot; class=&quot;btn btn-dark btn-block btn-direction btn-left&quot; ui-sref=&quot;items&quot;&gt;&#10;                        &lt;span class=&quot;glyphicon glyphicon-arrow-left&quot;&gt;&lt;/span&gt;&#10;                        Go Back to Item List&#10;                    &lt;/button&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;&#10;&#10;    &lt;div ng-if=&quot;vm.order.length !== 0&quot;&gt;&#10;        &lt;h3&gt;Confirmation&lt;/h3&gt;&#10;&#10;        &lt;p&gt;Thank you for your Order! Here's what is coming for... err.. I mean to you.&lt;/p&gt;&#10;&#10;        &lt;p&gt;Billing/Delivery Address&lt;/p&gt;&#10;        &lt;dl class=&quot;dl-horizontal&quot;&gt;&#10;            &lt;dt&gt;Name:&lt;/dt&gt;&#10;            &lt;dd&gt;{{vm.order.customer.firstName}} {{vm.order.customer.lastName}}&lt;/dd&gt;&#10;            &lt;dt&gt;Address:&lt;/dt&gt;&#10;            &lt;dd&gt;&#10;                {{vm.order.customer.addressLine1}} &lt;br ng-if=&quot;vm.order.customer.addressLine2 !==''&quot;&gt;&#10;                {{vm.order.customer.addressLine2}} &lt;br&gt;&#10;                {{vm.order.customer.city}}, {{vm.order.customer.state}}&#10;                {{vm.order.customer.zip}}&#10;            &lt;/dd&gt;&#10;            &lt;dt&gt;Phone:&lt;/dt&gt;&#10;            &lt;dd&gt;{{vm.order.customer.phone}}&lt;/dd&gt;&#10;            &lt;dt&gt;Email:&lt;/dt&gt;&#10;            &lt;dd&gt;{{vm.order.customer.email}}&lt;/dd&gt;&#10;        &lt;/dl&gt;&#10;&#10;        &lt;div class=&quot;row&quot;&gt;&#10;            &lt;ul class=&quot;list-group&quot;&gt;&#10;                &lt;li class=&quot;list-group-item&quot; ng-repeat=&quot;item in vm.order.items&quot;&gt;&#10;                    &lt;div class=&quot;row&quot;&gt;&#10;                        &lt;div class=&quot;col-xs-12 col-md-4&quot;&gt;&#10;                            &lt;label&gt;Item:&lt;/label&gt;&#10;                            &lt;img ng-src=&quot;assets/images/products/{{item.thumbnail}}&quot; class=&quot;circle&quot;/&gt;&#10;                            {{ item.name }}&#10;&#10;                        &lt;/div&gt;&#10;                        &lt;div class=&quot;col-xs-12 col-md-4&quot;&gt;&#10;                            &lt;label&gt;Quantity:&lt;/label&gt;&#10;                            {{item.quantity}}&#10;                        &lt;/div&gt;&#10;                        &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;&#10;                        &lt;div class=&quot;col-xs-12 col-md-4&quot;&gt;&#10;                            &lt;label&gt;Price:&lt;/label&gt;&#10;                            {{ item.price | currency : '$' }}&#10;                            &lt;/a&gt;&#10;                        &lt;/div&gt;&#10;                        &lt;div class=&quot;col-xs-12 col-md-4&quot;&gt;&#10;                            &lt;label&gt;Subtotal: {{ item.price * item.quantity | currency : '$' }}&lt;/label&gt;&#10;                        &lt;/div&gt;&#10;                    &lt;/div&gt;&#10;                &lt;/li&gt;&#10;            &lt;/ul&gt;&#10;        &lt;/div&gt;&#10;        &lt;div class=&quot;callout callout-success&quot; style=&quot;padding:10px 0px 3px 5px;margin:0px;&quot;&gt;&#10;            &lt;h2&gt;Order Total: {{vm.order.total | currency : '$'}}&lt;/h2&gt;&#10;        &lt;/div&gt;&#10;&#10;    &lt;/div&gt;&#10;&#10;&lt;/div&gt;" description="Demo 5 Checkout.Confirmation view" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo4reloadbutton" value="&#10;&lt;div class=&quot;row&quot;&gt;&#10;    &lt;button class=&quot;btn btn-sm btn-success pull-right&quot; ng-click=&quot;vm.reloadItems()&quot;&gt;&#10;        &lt;i class=&quot;glyphicon glyphicon-refresh&quot;&gt;&lt;/i&gt; Reload&#10;    &lt;/button&gt;&#10;&lt;/div&gt;" description="Demo 4 Reload Button" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo4servicescript" value="&lt;!--App specific services--&gt;&#10;&lt;script src=&quot;app/services/item.service.js&quot;&gt;&lt;/script&gt;" description="Demo 4 Service script" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo4itemservice" value="(function(){&#10;&#9;'use strict';&#10;&#10;&#9;//Creates a new module 'app.services.item' and registers a factory/service&#10;&#9;angular.module( 'app.services.item', [] )&#10;&#9;&#9;.factory( 'itemService', itemService );&#10;&#10;&#9;//Inject dependencies&#10;&#9;itemService.$inject = [ '$http' ];&#10;&#10;&#9;function itemService( $http ){&#10;&#10;&#10;&#9;&#9;///////////////////////////////////////////////////////////////////&#10;&#9;&#9;// IMPLEMENTATION DETAILS&#10;&#9;&#9;///////////////////////////////////////////////////////////////////&#10;&#10;&#9;}&#10;})();" description="Demo 4 Item Service" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo4getawesomethings" value="function getAwesomeThings(){&#10;    //Should be pulling this from a service&#10;    var awesomeThings = [];&#10;    itemService.getAwesomeThings()&#10;        .then( function( response ){&#10;            awesomeThings = response.data;&#10;            awesomeThings.map( function( awesomeThing ){&#10;                awesomeThing.rank = Math.random();&#10;            } );&#10;            vm.awesomeThings = awesomeThings;&#10;&#10;        } );&#10;}" description="Demo 4 getAwesomeThings function" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo4getitems" value="function getItems(){&#10;    itemService.getItems()&#10;        .then( function( response ){&#10;            vm.items = response.data;&#10;        } );&#10;}&#10;" description="Demo 4 Get Items function" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5constants" value="(function(){&#10;&#9;'use strict';&#10;&#10;&#9;angular.module( 'app.constants', [] )&#10;&#9;&#9;.constant( 'constants', { CART_NAME: 'devObjectiveDemo' } );&#10;&#10;}());&#10;" description="Demo 5 Constants" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5itemcart" value="// grab the index of the current item, if it exists&#10;vm.cartIndex = cartService.getItemIndex( vm.items.id );&#10;&#10;if( vm.cartIndex !== undefined ){&#10;    //Item existed in cart&#10;    var cartItem = cartService.getItem( vm.cartIndex );&#10;    vm.items.quantity = cartItem.quantity;&#10;    vm.addButtonText = &quot;Update Cart&quot;;&#10;}" description="Demo 5 Item cartService logic" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5emptyaddtocart" value="function addToCart(){&#10;&#10;}" description="Demo 5 Empty addToCart function" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="demo5cartservice" value="(function(){&#10;&#9;'use strict';&#10;&#10;&#9;angular.module( 'app.services.cart', [ 'angularLocalStorage' ] )&#10;&#9;&#9;.factory( 'cartService', cartService );&#10;&#10;&#9;cartService.$inject = [ 'storage' ];&#10;&#10;&#9;/* @ngInject */&#10;&#9;function cartService( storage ){&#10;&#10;&#9;&#9;var itemsStore = 'devObjectiveDemo';// should abstract via &quot;constant&quot;&#10;&#10;&#9;&#9;if( !( storage.get( itemsStore ) instanceof Array ) ){&#10;&#9;&#9;&#9;storage.set( itemsStore, [] );&#10;&#9;&#9;}&#10;&#10;&#9;&#9;return {&#10;&#9;&#9;&#9;itemsStore: itemsStore,&#10;&#9;&#9;&#9;getCart: getCart,&#10;&#9;&#9;&#9;addItem: addItem,&#10;&#9;&#9;&#9;removeItem: removeItem,&#10;&#9;&#9;&#9;getItem: getItem,&#10;&#9;&#9;&#9;getItemIndex: getItemIndex,&#10;&#9;&#9;&#9;getItemById: getItemById,&#10;&#9;&#9;&#9;updateQuantity: updateQuantity,&#10;&#9;&#9;&#9;totalItems: totalItems,&#10;&#9;&#9;&#9;totalQuantity: totalQuantity,&#10;&#9;&#9;&#9;cartTotal: cartTotal,&#10;&#9;&#9;&#9;emptyCart: emptyCart,&#10;&#9;&#9;&#9;checkout: checkout,&#10;&#9;&#9;&#9;getStates: getStates&#10;&#10;&#9;&#9;};&#10;&#10;&#9;&#9;//////////////////////////////&#10;&#9;&#9;// Implementation details&#10;&#9;&#9;//////////////////////////////&#10;&#10;&#9;&#9;function getCart(){&#10;&#9;&#9;&#9;var cart = storage.get( this.itemsStore );&#10;&#9;&#9;&#9;for( var i = 0; i &lt; cart.length; i++ ){&#10;&#9;&#9;&#9;&#9;cart[ i ].quantity = parseInt( cart[ i ].quantity, 10 );&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;return cart;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function addItem( item, quantity ){&#10;&#9;&#9;&#9;if( quantity === undefined ){&#10;&#9;&#9;&#9;&#9;quantity = 1;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;var items = storage.get( this.itemsStore );&#10;&#10;&#9;&#9;&#9;items.push( {&#10;&#9;&#9;&#9;&#9;id: item.id,&#10;&#9;&#9;&#9;&#9;name: item.name,&#10;&#9;&#9;&#9;&#9;quantity: parseInt( quantity, 10 ),&#10;&#9;&#9;&#9;&#9;price: parseFloat( item.price ),&#10;&#9;&#9;&#9;&#9;image: item.image,&#10;&#9;&#9;&#9;&#9;thumbnail: item.thumbnail,&#10;&#9;&#9;&#9;&#9;description: item.description&#10;&#9;&#9;&#9;} );&#10;&#10;&#9;&#9;&#9;storage.set( this.itemsStore, items );&#10;&#10;&#9;&#9;&#9;return items.length - 1;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function removeItem( index ){&#10;&#9;&#9;&#9;var items = storage.get( this.itemsStore );&#10;&#9;&#9;&#9;items.splice( index, 1 );&#10;&#9;&#9;&#9;storage.set( this.itemsStore, items );&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function getItem( index ){&#10;&#9;&#9;&#9;var items = storage.get( this.itemsStore );&#10;&#10;&#9;&#9;&#9;items[ index ].quantity = parseInt( items[ index ].quantity, 10 );&#10;&#9;&#9;&#9;return items[ index ];&#10;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function getItemIndex( itemId ){&#10;&#9;&#9;&#9;var items = storage.get( this.itemsStore );&#10;&#10;&#9;&#9;&#9;for( var i = 0; i &lt; items.length; i++ ){&#10;&#10;&#9;&#9;&#9;&#9;if( items[ i ].id == itemId ){&#10;&#9;&#9;&#9;&#9;&#9;return i;&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}&#10;&#10;&#9;&#9;&#9;return undefined;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function getItemById( itemId ){&#10;&#9;&#9;&#9;var items = storage.get( this.itemsStore ), item = {};&#10;&#10;&#9;&#9;&#9;item = items[ this.getItemIndex( itemId ) ];&#10;&#10;&#9;&#9;&#9;return item || undefined;&#10;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function updateQuantity( index, quantity ){&#10;&#9;&#9;&#9;var items = storage.get( this.itemsStore );&#10;&#10;&#9;&#9;&#9;items[ index ].quantity = parseInt( quantity, 10 );&#10;&#9;&#9;&#9;items[ index ].price = parseFloat( items[ index ].price );&#10;&#9;&#9;&#9;storage.set( this.itemsStore, items );&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function totalItems(){&#10;&#9;&#9;&#9;var items = storage.get( this.itemsStore ) || [];&#10;&#10;&#9;&#9;&#9;return items.length;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function totalQuantity(){&#10;&#9;&#9;&#9;var quantity = 0, items = storage.get( this.itemsStore ) || [];&#10;&#10;&#9;&#9;&#9;for( var i = 0; i &lt; items.length; i++ ){&#10;&#9;&#9;&#9;&#9;quantity += parseInt( items[ i ].quantity, 10 );&#10;&#9;&#9;&#9;}&#10;&#10;&#9;&#9;&#9;return quantity;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function cartTotal(){&#10;&#9;&#9;&#9;var total = 0, items = storage.get( this.itemsStore );&#10;&#10;&#9;&#9;&#9;for( var i = 0; i &lt; items.length; i++ ){&#10;&#9;&#9;&#9;&#9;total += parseInt( items[ i ].quantity, 10 ) * parseFloat( items[ i ].price );&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;return parseFloat( total );&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function emptyCart(){&#10;&#9;&#9;&#9;storage.remove( this.itemsStore );&#10;&#9;&#9;&#9;storage.set( this.itemsStore, [] );&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function checkout( customer ){&#10;&#9;&#9;&#9;// pull out customer info to return&#10;&#9;&#9;&#9;var customerData = {&#10;&#9;&#9;&#9;&#9;firstName: customer.firstName,&#10;&#9;&#9;&#9;&#9;lastName: customer.lastName,&#10;&#9;&#9;&#9;&#9;addressLine1: customer.addressLine1,&#10;&#9;&#9;&#9;&#9;addressLine2: customer.addressLine2,&#10;&#9;&#9;&#9;&#9;city: customer.addressCity,&#10;&#9;&#9;&#9;&#9;state: customer.addressState,&#10;&#9;&#9;&#9;&#9;zip: customer.addressZip,&#10;&#9;&#9;&#9;&#9;phone: customer.phone,&#10;&#9;&#9;&#9;&#9;email: customer.email&#10;&#9;&#9;&#9;};&#10;&#10;&#9;&#9;&#9;//Fake checkout service&#10;&#9;&#9;&#9;var response = {&#10;&#9;&#9;&#9;&#9;status: &quot;success&quot;,&#10;&#9;&#9;&#9;&#9;items: this.getCart(),&#10;&#9;&#9;&#9;&#9;total: this.cartTotal(),&#10;&#9;&#9;&#9;&#9;customer: customerData&#10;&#9;&#9;&#9;};&#10;&#10;&#9;&#9;&#9;//would normally send a request to server to&#10;&#9;&#9;&#9;//process transaction&#10;&#9;&#9;&#9;this.emptyCart();&#10;&#10;&#9;&#9;&#9;return response;&#10;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;function getStates(){&#10;&#9;&#9;&#9;return [ {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Alabama&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;AL&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Alaska&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;AK&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;American Samoa&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;AS&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Arizona&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;AZ&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Arkansas&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;AR&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;California&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;CA&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Colorado&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;CO&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Connecticut&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;CT&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Delaware&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;DE&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;District Of Columbia&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;DC&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Federated States Of Micronesia&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;FM&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Florida&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;FL&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Georgia&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;GA&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Guam&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;GU&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Hawaii&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;HI&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Idaho&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;ID&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Illinois&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;IL&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Indiana&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;IN&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Iowa&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;IA&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Kansas&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;KS&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Kentucky&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;KY&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Louisiana&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;LA&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Maine&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;ME&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Marshall Islands&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;MH&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Maryland&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;MD&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Massachusetts&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;MA&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Michigan&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;MI&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Minnesota&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;MN&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Mississippi&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;MS&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Missouri&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;MO&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Montana&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;MT&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Nebraska&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;NE&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Nevada&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;NV&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;New Hampshire&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;NH&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;New Jersey&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;NJ&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;New Mexico&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;NM&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;New York&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;NY&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;North Carolina&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;NC&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;North Dakota&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;ND&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Northern Mariana Islands&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;MP&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Ohio&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;OH&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Oklahoma&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;OK&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Oregon&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;OR&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Palau&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;PW&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Pennsylvania&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;PA&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Puerto Rico&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;PR&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Rhode Island&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;RI&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;South Carolina&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;SC&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;South Dakota&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;SD&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Tennessee&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;TN&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Texas&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;TX&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Utah&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;UT&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Vermont&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;VT&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Virgin Islands&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;VI&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Virginia&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;VA&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Washington&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;WA&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;West Virginia&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;WV&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Wisconsin&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;WI&quot;&#10;&#9;&#9;&#9;         }, {&#10;&#9;&#9;&#9;&#9;         &quot;name&quot;: &quot;Wyoming&quot;,&#10;&#9;&#9;&#9;&#9;         &quot;abbreviation&quot;: &quot;WY&quot;&#10;&#9;&#9;&#9;         } ];&#10;&#9;&#9;}&#10;&#10;&#9;}&#10;})();&#10;" description="Demo 5 Cart Service" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+      <option name="TypeScript" value="false" />
+    </context>
+  </template>
+  <template name="demo5cartview" value="&lt;section class=&quot;panel panel-default&quot;&gt;&#10;    &lt;div class=&quot;panel-heading&quot;&gt;&#10;        &lt;strong&gt;&#10;            &lt;span class=&quot;glyphicon glyphicon-eye-open the-eye&quot;&gt;&lt;/span&gt;&amp;nbsp;&#10;            Shopping Cart&#10;        &lt;/strong&gt;&#10;    &lt;/div&gt;&#10;    &lt;div class=&quot;panel-body&quot;&gt;&#10;        &lt;div ng-if=&quot;!vm.cart.length&quot;&gt;&#10;&#10;            &lt;div class=&quot;alert alert-warning&quot;&gt;&#10;                &lt;h1&gt;&#10;                    &lt;span class=&quot;glyphicon glyphicon-shopping-cart&quot;&gt;&lt;/span&gt;&#10;                    Cart is Empty&#10;                &lt;/h1&gt;&#10;&#10;                &lt;div class=&quot;row spacer&quot;&gt;&#10;                    &lt;div class=&quot;col-md-12&quot;&gt;&#10;                        &lt;button type=&quot;button&quot; class=&quot;btn btn-dark btn-block btn-direction btn-left&quot; ui-sref=&quot;items&quot;&gt;&#10;                            &lt;span class=&quot;glyphicon glyphicon-arrow-left&quot;&gt;&lt;/span&gt;&#10;                            Go Back to Item List&#10;                        &lt;/button&gt;&#10;                    &lt;/div&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;&#10;        &lt;div ng-if=&quot;vm.cart.length&quot;&gt;&#10;            &lt;div class=&quot;row&quot;&gt;&#10;                &lt;ul class=&quot;list-group&quot;&gt;&#10;                    &lt;li class=&quot;list-group-item&quot; ng-repeat=&quot;item in vm.cart&quot;&gt;&#10;                        &lt;div class=&quot;row&quot;&gt;&#10;                            &lt;div class=&quot;col-xs-12 col-md-4&quot;&gt;&#10;                                &lt;label&gt;Item:&lt;/label&gt;&#10;                                &lt;img ng-src=&quot;assets/images/products/{{item.thumbnail}}&quot; class=&quot;circle&quot;/&gt;&#10;                                {{ item.name }}&#10;&#10;                            &lt;/div&gt;&#10;                            &lt;div class=&quot;col-xs-12 col-md-4&quot;&gt;&#10;                                &lt;label&gt;Quantity:&lt;/label&gt;&#10;&#10;                                &lt;input spinner item=&quot;item&quot; value=&quot;item.quantity&quot;&#10;                                       callback=&quot;vm.updateQuantity($index,item.quantity)&quot;/&gt;&#10;&#10;                            &lt;/div&gt;&#10;                            &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;&#10;                            &lt;div class=&quot;col-xs-12 col-md-4&quot;&gt;&#10;                                &lt;label&gt;Price:&lt;/label&gt;&#10;                                {{ item.price | currency : '$' }}&#10;                                &lt;a ng-click=&quot;vm.removeItem( $index )&quot; class=&quot;btn btn-danger btn-xs pull-right&quot;&gt;&#10;                                    &lt;span class=&quot;glyphicon glyphicon-trash&quot;&gt;&lt;/span&gt;&#10;                                &lt;/a&gt;&#10;                            &lt;/div&gt;&#10;                            &lt;div class=&quot;col-xs-12 col-md-4&quot;&gt;&#10;                                &lt;label&gt;Subtotal: {{ item.price * item.quantity | currency : '$' }}&lt;/label&gt;&#10;                            &lt;/div&gt;&#10;                        &lt;/div&gt;&#10;                    &lt;/li&gt;&#10;                &lt;/ul&gt;&#10;            &lt;/div&gt;&#10;            &lt;div class=&quot;row&quot;&gt;&#10;                &lt;div class=&quot;col-md-12&quot;&gt;&#10;                    Cart Total: {{vm.getCartTotal() | currency : '$'}}&#10;                    &lt;a ng-click=&quot;vm.emptyCart()&quot; class=&quot;btn btn-danger btn-xs pull-right&quot;&gt;&#10;                        Empty Cart&#10;                        &lt;span class=&quot;glyphicon glyphicon-trash&quot;&gt;&lt;/span&gt;&#10;                    &lt;/a&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&#10;            &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;&#10;&#10;            &lt;div class=&quot;row&quot;&gt;&#10;                &lt;div class=&quot;col-md-12&quot;&gt;&#10;                    &lt;button class=&quot;btn btn-success btn-block&quot; ng-click=&quot;vm.checkout()&quot;&gt;&#10;                        Checkout&#10;                        &lt;span class=&quot;glyphicon glyphicon-credit-card&quot;&gt;&lt;/span&gt;&#10;                    &lt;/button&gt;&#10;                &lt;/div&gt;&#10;            &lt;/div&gt;&#10;            &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;    &lt;div class=&quot;row&quot; ng-if=&quot;vm.cart.length&quot;&gt;&#10;        &lt;div class=&quot;col-md-12&quot;&gt;&#10;            &lt;button type=&quot;button&quot; class=&quot;btn btn-dark btn-block btn-direction btn-left&quot; ui-sref=&quot;items&quot;&gt;&#10;                &lt;span class=&quot;glyphicon glyphicon-arrow-left&quot;&gt;&lt;/span&gt;&#10;                Go Back to Item List&#10;            &lt;/button&gt;&#10;        &lt;/div&gt;&#10;    &lt;/div&gt;&#10;&lt;/section&gt;&#10;" description="Demo 5 Cart view" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="demo2bootstrap" value="&lt;!-- load bootstrap --&gt;&#10;&lt;link rel=&quot;stylesheet&quot; href=&quot;libs/bootstrap/css/bootstrap.min.css&quot;&gt;&#10;&lt;!--custom styles--&gt;&#10;&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/styles/styles.css&quot;&gt;" description="Demo 2 Add Bootstrap" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,0 +1,33 @@
+
+<snippet>
+	<content><![CDATA[
+function getCart(){
+    vm.cart = cartService.getCart();
+}
+
+function getStates(){
+    vm.states = cartService.getStates();
+}
+
+function canSubmit(){
+    return vm.checkoutForm.$valid;
+}
+
+function checkout(){
+    var order = cartService.checkout( vm.checkoutForm );
+    vm.order = [];
+    if( order.status && order.status == "success" ){
+        vm.cart = [];
+        vm.order = order;
+
+        $state.go( 'checkout.confirmation' );
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5checkoutfuncs</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 Checkout Controller functions</description>
+</snippet>

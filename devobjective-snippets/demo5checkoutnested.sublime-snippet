@@ -1,0 +1,34 @@
+
+<snippet>
+	<content><![CDATA[
+<!--Nested Views (checkout form) -->
+<div ng-if="vm.cart.length !== 0 || vm.order.length !== 0">
+    <div class="text-center" ng-if="vm.cart.length !== 0">
+        <button ui-sref-active="btn-primary" ui-sref=".profile"
+                class="btn btn-large btn-danger">
+            <span class="badge badge-primary">1</span> Profile
+        </button>
+        <button ui-sref-active="btn-primary" ng-disabled="!vm.canSubmit()" ui-sref=".address"
+                class="btn btn-large btn-danger">
+            <span class="badge badge-primary">2</span> Address
+        </button>
+        <button ui-sref-active="btn-primary" ng-disabled="!vm.canSubmit()" ui-sref=".payment"
+                class="btn btn-large btn-danger">
+            <span class="badge badge-primary">3</span> Payment
+        </button>
+    </div>
+
+    <form name="vm.checkoutForm">
+        <!-- our nested state views will be injected here -->
+        <ui-view></ui-view>
+    </form>
+
+</div>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo5checkoutnested</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 5 Nested Checkout views</description>
+</snippet>

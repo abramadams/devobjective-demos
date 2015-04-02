@@ -1,0 +1,12 @@
+
+<snippet>
+	<content><![CDATA[
+ng-controller="MainController as vm"
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>demo2ngcontroller</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger
+	<scope>source.cfscript</scope>
+	 -->
+	 <description>Demo 2 ng-controller directive</description>
+</snippet>
