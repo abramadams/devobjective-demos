@@ -1,9 +1,7 @@
 <div class="jumbotron text-center">
     <div class="col-md-6 col-md-offset-6">
         <h1>
-            <span ng-class="vm.getFireBurn( $index )"
-                  ng-repeat="char in vm.title track by $index">{{char}}</span>
-            <!--{{vm.title}}-->
+            <span ng-class="vm.getFireBurn( $index )" ng-repeat="char in vm.title track by $index">{{char}}</span>
         </h1>
 
         <p class="lead">
@@ -28,7 +26,7 @@
             <div class="caption">
                 <h4>{{item.name}}</h4>
 
-                <p><a ui-sref="item({id:item.linkId})" class="random-deal-link">View Details</a></p>
+                <p><a ui-sref="item({id:item.linkid})" class="random-deal-link">View Details</a></p>
             </div>
         </div>
     </div>
