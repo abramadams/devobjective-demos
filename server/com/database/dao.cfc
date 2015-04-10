@@ -1,7 +1,7 @@
 <!---
 ************************************************************
 *
-*	Copyright (c) 2007-2014, Abram Adams
+*	Copyright (c) 2007-2015, Abram Adams
 *
 *	Licensed under the Apache License, Version 2.0 (the "License");
 *	you may not use this file except in compliance with the License.
@@ -20,8 +20,8 @@
 		Component	: dao.cfc
 		Author		: Abram Adams
 		Date		: 1/2/2007
-	  	@version 0.0.67
-	   	@updated 1/27/2015
+	  	@version 0.0.70
+	   	@updated 3/31/2015
 		Description	: Generic database access object that will
 		control all database interaction.  This component will
 		invoke database specific functions when needed to perform
@@ -183,7 +183,15 @@
 			}
 		}
 
-
+		/**
+		* Returns a new instance of DAO.  A simple convenience method
+		* to get a fully initialized dao.
+		**/
+		public function new(){
+			var copy = duplicate( this );
+			copy._resetCriteria();
+			return copy;
+		}
 
 		/**
 		* I return the ID of the last inserted record.
@@ -862,7 +870,7 @@
 
 			// This function wll parse the passed SQL string to replace $queryParam()$ with the evaluated
 			// <cfqueryparam> tag before passing the SQL statement to cfquery (dao.read(),execute()).  If the
-			// SQL is generated in-page, you can use dao.queryParam() directly to create query parameters.
+			// SQL is generated in-page, you can use dao.queryParam()$ directly to create query parameters.
 			// the $queryParam()$ will delay evaluation of its arguments until query is executed. This is an old
 			// approach, and should be avoided.  The new approach is to use the named params as described below:
 			//*******
@@ -883,7 +891,7 @@
 			//		OR ( first_name LIKE :firstName{ type="varchar" }
 			//			AND email = :email
 			// 			)
-			//		OR ID IN :userIds{ type="int", list=true }
+			//		OR ID IN (:userIds{ type="int", list=true })
 			//		",
 			//		{ firstName = 'Jim%', email = session.user.email isAdmin = session.user.isAdmin, userIds = "1,2,4,77" }
 			// );
@@ -1053,30 +1061,36 @@
 			return getConn().dropTable( arguments.table );
 		}
 
-		// Entity Query API - Provides LINQ'ish style queries
-		public function from( required string from, any joins = [] ){
-			_resetCriteria();
-			_criteria.from = arguments.from;
-			_criteria.columns = getColumns( arguments.from );
-			_criteria.callStack = [ { from = from, joins = joins } ];
+		/**
+		* Entity Query API - Provides LINQ'ish style queries
+		* Returns a duplicate copy of DAO with an empty Entity Query criteria
+		* (except the args passed in).  This allows multiple entity queries to co-exist
+		**/
+		public function from( required string table, any joins = [], string columns = getColumns( arguments.table ) ){
+			var newDao = new();
+			newDao._criteria.from = table;
+			newDao._criteria.columns = columns;
+			newDao._criteria.callStack = [ { from = table, joins = joins } ];
 			if( arrayLen( joins ) ){
-				for( var table in joins ){
-					join( type = table.type, table = table.table, on = table.on );
-					_criteria.columns = listAppend( _criteria.columns, table.columns );
+				for( var _table in joins ){
+					newDao.join( type = _table.type, table = _table.table, on = _table.on );
+					if( !isNull( _table.columns ) ){
+						newDao._criteria.columns = listAppend( newDao._criteria.columns, _table.columns );
+					}
 				}
 			}
 
-			return this;
+			return newDao;
 		}
 
 		public function where( required string column, required string operator, required string value ){
 			// There can be only one where.
-			if ( arrayLen( _criteria.clause ) && left( _criteria.clause[ 1 ] , 5 ) != "WHERE" ){
-				arrayPrepend( _criteria.clause, "WHERE #_getSafeColumnName( column )# #operator# #queryParam(value)#" );
+			if ( arrayLen( this._criteria.clause ) && left( this._criteria.clause[ 1 ] , 5 ) != "WHERE" ){
+				arrayPrepend( this._criteria.clause, "WHERE #_getSafeColumnName( column )# #operator# #queryParam(value)#" );
 			}else{
-				_criteria.clause[ 1 ] = "WHERE #_getSafeColumnName( column )# #operator# #queryParam(value)#";
+				this._criteria.clause[ 1 ] = "WHERE #_getSafeColumnName( column )# #operator# #queryParam(value)#";
 			}
-			arrayAppend(_criteria.callStack, { where = { column = column, operator = operator, value = value } } );
+			arrayAppend(this._criteria.callStack, { where = { column = column, operator = operator, value = value } } );
 			return this;
 		}
 		public function andWhere( required string column, required string operator, required string value ){
@@ -1094,8 +1108,8 @@
 		**/
 		public function beginGroup( string operator = "AND"){
 
-			arrayAppend( _criteria.clause, "#operator# ( " );
-			arrayAppend(_criteria.callStack, { beginGroup = { operator = operator } } );
+			arrayAppend( this._criteria.clause, "#operator# ( " );
+			arrayAppend( this._criteria.callStack, { beginGroup = { operator = operator } } );
 			return this;
 		}
 		/**
@@ -1104,76 +1118,80 @@
 		**/
 		public function endGroup(){
 
-			arrayAppend( _criteria.clause, " )" );
-			arrayAppend(_criteria.callStack, { endGroup = "" });
+			arrayAppend( this._criteria.clause, " )" );
+			arrayAppend( this._criteria.callStack, { endGroup = "" });
 			return this;
 		}
 
-		public function join( string type = "LEFT", required string table, required string on, string alias = arguments.table ){
-			arrayAppend( _criteria.joins, "#type# JOIN #_getSafeColumnName( table )# #alias# on #on#" );
-			arrayAppend(_criteria.callStack, { join = { type = type, table = table, on = on, alias = alias } } );
-
+		public function join( string type = "LEFT", required string table, required string on, string alias = arguments.table, string columns ){
+			arrayAppend( this._criteria.joins, "#type# JOIN #_getSafeColumnName( table )# #alias# on #on#" );
+			arrayAppend( this._criteria.callStack, { join = { type = type, table = table, on = on, alias = alias } } );
+			if( !isNull( columns ) ){
+				this._criteria.columns = listAppend( this._criteria.columns, columns );
+			}
 			return this;
 		}
 
 		public function orderBy( required string orderBy ){
 
-			_criteria.orderBy = orderBy;
-			arrayAppend(_criteria.callStack, { orderBy = { orderBy = orderBy } } );
+			this._criteria.orderBy = orderBy;
+			arrayAppend( this._criteria.callStack, { orderBy = { orderBy = orderBy } } );
 			return this;
 		}
 
 		public function limit( required any limit ){
 
-			_criteria.limit = arguments.limit;
-			arrayAppend(_criteria.callStack, { limit = { limit = limit } } );
+			this._criteria.limit = arguments.limit;
+			arrayAppend( this._criteria.callStack, { limit = { limit = limit } } );
 			return this;
 		}
 
 		public function returnAs( string returnType = "Query" ){
 
-			_criteria.returnType = arguments.returnType;
-			arrayAppend(_criteria.callStack, { returnType = { returnType = returnType } } );
+			this._criteria.returnType = arguments.returnType;
+			arrayAppend( this._criteria.callStack, { returnType = { returnType = returnType } } );
 
 			return this;
 		}
 
 		public function run(){
-			return read( table = _criteria.from,
-						 columns = _criteria.columns,
-						 where = arrayToList( _criteria.joins ) & " " & arrayToList( _criteria.clause, ' ' ),
-						 limit = _criteria.limit,
-						 orderBy = _criteria.orderBy,
-						 returnType = _criteria.returnType );
+			return read( table = this._criteria.from,
+						 columns = this._criteria.columns,
+						 where = arrayToList( this._criteria.joins, " " ) & " " & arrayToList( this._criteria.clause, " " ),
+						 limit = this._criteria.limit,
+						 orderBy = this._criteria.orderBy,
+						 returnType = this._criteria.returnType );
 		}
 
-
-
 		public function getCriteria(){
-			return _criteria;
+			return this._criteria;
+		}
+
+		public function setCriteria( required criteria ){
+			this._criteria = criteria;
 		}
 
 		public function getCriteriaAsJSON(){
-			var ret = _criteria;
-			structDelete( _criteria, 'callStack' );
+			var ret = this._criteria;
+			structDelete( this._criteria, 'callStack' );
 
 			return serializeJSON( ret );
 		}
 
 		// EntityQuery "helper" functions
-		private function _appendToWhere( required string andOr, required string column, required string operator, required string value ){
-			if ( arrayLen( _criteria.clause )
-				&& ( left( _criteria.clause[ arrayLen( _criteria.clause ) ] , 5 ) != "AND ("
-				&& left( _criteria.clause[ arrayLen( _criteria.clause ) ] , 4 ) != "OR (" ) ){
-				arrayAppend( _criteria.clause, "#andOr# #_getSafeColumnName( column )# #operator# #queryParam(value)#" );
+		public function _appendToWhere( required string andOr, required string column, required string operator, required string value ){
+			if ( arrayLen( this._criteria.clause )
+				&& ( left( this._criteria.clause[ arrayLen( this._criteria.clause ) ] , 5 ) != "AND ("
+				&& left( this._criteria.clause[ arrayLen( this._criteria.clause ) ] , 4 ) != "OR (" ) ){
+				arrayAppend( this._criteria.clause, "#andOr# #_getSafeColumnName( column )# #operator# #queryParam(value)#" );
 			}else{
-				arrayAppend( _criteria.clause, "#_getSafeColumnName( column )# #operator# #queryParam(value)#" );
+				arrayAppend( this._criteria.clause, "#_getSafeColumnName( column )# #operator# #queryParam(value)#" );
 			}
-			arrayAppend(_criteria.callStack, { _appendToWhere = { andOr = andOr, column = column, operator = operator, value = value } } );
+			arrayAppend( this._criteria.callStack, { _appendToWhere = { andOr = andOr, column = column, operator = operator, value = value } } );
 			return this;
 		}
-		private function _resetCriteria(){
-			_criteria = { from = "", clause = [], limit = "*", orderBy = "", joins = [], returnType = "Query" };
+		public function _resetCriteria(){
+			this._criteria = { from = "", clause = [], limit = "*", orderBy = "", joins = [], returnType = "Query" };
 		}
 
 		/**
@@ -1182,7 +1200,7 @@
 		* However, if the column name not a valid column name (i.e. a number) I will
 		* just return the column name unchanged
 		**/
-		private function _getSafeColumnName( required string column ){
+		public function _getSafeColumnName( required string column ){
 
 			if( isValid( "variableName", column ) ){
 				if( listLen( arguments.column, '.' ) GT 1 ){
@@ -1201,28 +1219,36 @@
 		**/
 		public function queryToArray( required query qry ){
 			var queryArray = [];
+		    // using getMetaData instead of columnList to preserve case.
+		    // also, notice the hack to convert to a list then back to array. This is because getMetaData doesn't return real arrays (as far as CF is concerned)
+		    if ( isDefined('server') && ( structKeyExists(server,'railo') || structKeyExists(server,'lucee') ) ){
+		    	// var colList = listToArray( arrayToList( qry.getMetaData().getColumnLabels() ) );
+		    	var sqlString = qry.getSQL().getSQLString();
+		    	var tableName = reReplaceNoCase( sqlString, '.*?\sFROM\s(.*?)[\s|;].*', '\1', 'all' );
+
+		    	// writeDump([tableName,getMetaData(qry),qry.getSQL().getSQLString(),qry.getSQL()]);abort;
+		    	var test = new tabledef( tablename = tableName, dsn = getDSN() );
+		    	// Check for the tabledef object for this table, if it doesn't already exist, create it
+				if( !structKeyExists( variables.tabledefs, tableName) ){
+					variables.tabledefs[ tableName ] = new tabledef( tablename = tableName, dsn = getDSN() );
+				}
+
+		    	var colList = listToArray( structKeyList(test.gettablemeta().columns) );
+		    }else{
+		    	var colList = listToArray( arrayToList( qry.getMetaData().getColumnLabels() ) );
+		    }
+		    // If the query was an query of queries the "from" will not be a table and therefore
+		    // will not have returned any columns.  We'll just ignore the need for preserving case
+		    // and include the query columns as is assuming the source sql provides the desired case.
+		    if( !arrayLen( colList ) ){
+		    	colList = listToArray( structKeyList( qry ) );
+		    }
 			for( var i = 1; i lte qry.recordCount; i++ ){
 			    var cols = {};
-			    // using getMetaData instead of columnList to preserve case.
-			    // also, notice the hack to convert to a list then back to array. This is because getMetaData doesn't return real arrays (as far as CF is concerned)
-			    if (isDefined('server') && structKeyExists(server,'railo')){
-			    	// var colList = listToArray( arrayToList( qry.getMetaData().getColumnLabels() ) );
-			    	var sqlString = qry.getSQL().getSQLString();
-			    	var tableName = reReplaceNoCase( sqlString, '.*?\sFROM\s(.*?)[\s|;].*', '\1', 'all' );
-
-			    	// writeDump([tableName,getMetaData(qry),qry.getSQL().getSQLString(),qry.getSQL()]);abort;
-			    	var test = new tabledef( tablename = tableName, dsn = getDSN() );
-			    	// Check for the tabledef object for this table, if it doesn't already exist, create it
-					if( !structKeyExists( variables.tabledefs, tableName) ){
-						variables.tabledefs[ tableName ] = new tabledef( tablename = tableName, dsn = getDSN() );
-					}
-
-			    	var colList = listToArray( structKeyList(test.gettablemeta().columns) );
-			    }else{
-			    	var colList = listToArray( arrayToList( qry.getMetaData().getColumnLabels() ) );
-			    }
 			    for( var col in colList ){
-			        structAppend(cols, {'#col#' = qry[col][i] } );
+			    	if( structKeyExists( qry, col ) ){
+			        	structAppend(cols, {'#col#' = qry[col][i] } );
+			        }
 			    }
 			    arrayAppend( queryArray, cols );
 			}
@@ -1245,7 +1271,7 @@
 		<cfargument name="cachedwithin" required="false" type="any" hint="createTimeSpan() to cache this query" default="">
 		<cfargument name="table" required="false" type="string" default="" hint="Table name to select from, use only if not using SQL">
 		<cfargument name="columns" required="false" type="string" default="" hint="List of valid column names for select statement, use only if not using SQL">
-		<cfargument name="where" required="false" type="string" hint="Where clause. Only used if sql is a tablename" default="">
+		<cfargument name="where" required="false" type="string" hint="Where clause. Only used if sql is a tablename">
 		<cfargument name="limit" required="false" type="any" hint="Limit records returned.  Only used if sql is a tablename" default="">
 		<cfargument name="offset" required="false" type="any" hint="Offset queried recordset.  Only used if sql is a tablename" default="">
 		<cfargument name="orderby" required="false" type="string" hint="Order By columns.  Only used if sql is a tablename" default="">
@@ -1259,6 +1285,8 @@
 		<cfset var tmpName = "" />
 		<cfset var idx = "" />
 		<cfset var LOCAL = {} />
+		<!--- where is also a function name in this cfc, so let's localize the arg --->
+		<cfset var _where = isNull( arguments.where ) ? "" : arguments.where/>
 
 		<cfif !len( trim( arguments.sql ) ) && !len( trim( arguments.table ) )>
 			<cfthrow message="You must pass in either a table name or sql statement." />
@@ -1298,7 +1326,7 @@
 
 
 								<!--- Now we build the query --->
-								<cfquery name="LOCAL.#arguments.name#" datasource="#variables.dsn#" result="results_#arguments.name#">
+								<cfquery name="LOCAL.#arguments.name#" datasource="#variables.dsn#" result="results_#arguments.name#" cachedwithin="#cachedwithin#">
 									<!---
 										Parse out the queryParam calls inside the where statement
 										This has to be done this way because you cannot use
@@ -1348,14 +1376,14 @@
 						<!--- Query by table --->
 						<!--- abstract --->
 						<cfset LOCAL[arguments.name] = getConn().select(
-															table = arguments.table,
-															columns = arguments.columns,
-															name = arguments.name,
-															where = arguments.where,
-															orderby = arguments.orderby,
-															limit = arguments.limit,
-															offset = arguments.offset,
-															cachedwithin = arguments.cachedwithin
+															table = table,
+															columns = columns,
+															name = name,
+															where = _where,
+															orderby = orderby,
+															limit = limit,
+															offset = offset,
+															cachedwithin = cachedwithin
 														)/>
 					</cfif>
 
