@@ -11,6 +11,17 @@ component accessors="true" {
 	public function processOrder( required struct customer, required struct cart ){
 		// Fake payment gateway... would send request to process payment and if successful
 		// record the payment and return success to user.
+		structAppend( customer, {
+				"firstName": "",
+                "lastName": "",
+                "addressLine1": "",
+                "addressLine2": "",
+                "addressCity": "",
+                "addressState": "",
+                "addressZip": "",
+                "phone": "",
+                "email": ""
+        },false);
 
 		var customerData = {
 			"first_name": customer.firstName,
@@ -36,7 +47,7 @@ component accessors="true" {
 			"customer_Id": customer.getId(),
 			"order_number": orderNo,
 			"order_date": now(),
-			"total": cart.cartTotal,
+			"total": cart.total,
 			"payment_status": 1,
 			"payment_method": cart.payment_method,
 			"payment_date": now()
@@ -54,10 +65,10 @@ component accessors="true" {
 		}
 
 		return {
-			status: "success",
-			items: cart,
-			total: cart.cartTotal,
-			customer: customerData
+			"status": "success",
+			"items": cart.items,
+			"total": cart.total,
+			"customer": customerData
 		};
 
 	}

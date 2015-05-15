@@ -2,11 +2,11 @@ component {
     /**
     * I return a list of items
     **/
-    public function getItems() {
+    public function getItems( ) {
 
-        var items = new com.database.BaseModelObject( table="items" );
+        var items = new com.database.BaseModelObject( table = "items" );
 
-        return items.listAsArray();
+        return items.listAsArray( );
 
     }
 
@@ -14,10 +14,10 @@ component {
     * I return a single item
     **/
     public function getItem( itemId ) {
+        replace( itemId, " ", "+", "all" );
+        var item = new com.database.BaseModelObject( table = "items" ).loadByLinkId( itemId );
 
-        var item = new com.database.BaseModelObject( table="items" ).loadByLinkId( itemId );
-
-        return item.toStruct();
+        return item.toStruct( );
 
     }
 }

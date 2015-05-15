@@ -50,12 +50,14 @@
 		function checkout(){
 			var order = cartService.checkout( vm.checkoutForm );
 			vm.order = [];
-			if( order.status && order.status == "success" ){
-				vm.cart = [];
-				vm.order = order;
+			order.success( function( o ){
+				if( o.status && o.status == "success" ){
+					vm.cart = [];
+					vm.order = o;
 
-				$state.go( 'checkout.confirmation' );
-			}
+					$state.go( 'checkout.confirmation' );
+				}
+			} );
 		}
 
 	}
