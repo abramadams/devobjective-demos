@@ -20,8 +20,8 @@
 		Component	: dao.cfc
 		Author		: Abram Adams
 		Date		: 1/2/2007
-	  	@version 0.0.70
-	   	@updated 3/31/2015
+		@version 0.0.72
+		@updated 4/30/2015
 		Description	: Generic database access object that will
 		control all database interaction.  This component will
 		invoke database specific functions when needed to perform
@@ -381,7 +381,7 @@
 		**/
 		public boolean function delete( required string table, required string recordID, string IDField = "", any onFinish = "", any callbackArgs = {}  ){
 			var ret = true;
-	 		// try{
+			// try{
 				transaction{
 
 					if( arguments.RecordID is "*" ){
@@ -458,8 +458,8 @@
 			}
 
 			// Count lines in file to get a sequence number
-		    LOCAL.file = createObject("java","java.io.File").init(javacast("string",transactionLogFile));
-		    LOCAL.fileReader = createObject("java","java.io.FileReader").init(LOCAL.file);
+			LOCAL.file = createObject("java","java.io.File").init(javacast("string",transactionLogFile));
+			LOCAL.fileReader = createObject("java","java.io.FileReader").init(LOCAL.file);
 			LOCAL.reader = createObject("java","java.io.LineNumberReader").init(LOCAL.fileReader);
 			LOCAL.reader.skip(LOCAL.file.length());
 			LOCAL.lines = LOCAL.reader.getLineNumber();
@@ -593,7 +593,7 @@
 		/**
 		* I return an array of tables for the current database
 		**/
-    	public array function getTables(){
+		public array function getTables(){
 			if ( isDefined('server') && structKeyExists( server, 'railo' ) ){
 				// railo does things a bit different with dbinfo.
 				var railoHacks = new railoHacks( variables.dsn );
@@ -682,7 +682,7 @@
 				arguments.cfsqltype = "cf_sql_varchar";
 			}
 			returnStruct = queryParamStruct( value = trim( arguments.value ), cfsqltype = arguments.cfsqltype, list = arguments.list, null = arguments.null );
-	 		returnString = '#chr(998)#list=#chr(777)##returnStruct.list##chr(777)# null=#chr(777)##returnStruct.null##chr(777)# cfsqltype=#chr(777)##returnStruct.cfsqltype##chr(777)# value=#chr(777)##returnStruct.value##chr(777)##chr(999)#';
+			returnString = '#chr(998)#list=#chr(777)##returnStruct.list##chr(777)# null=#chr(777)##returnStruct.null##chr(777)# cfsqltype=#chr(777)##returnStruct.cfsqltype##chr(777)# value=#chr(777)##returnStruct.value##chr(777)##chr(999)#';
 			return returnString;
 		}
 		/**
@@ -867,7 +867,7 @@
 		* I parse queryParam calls in the passed SQL string.  See queryParam() for syntax.
 		**/
 		public function parseQueryParams( required any str, struct params = {} ){
-
+			str &= " ";// pad with trailing space for simpler regex.
 			// This function wll parse the passed SQL string to replace $queryParam()$ with the evaluated
 			// <cfqueryparam> tag before passing the SQL statement to cfquery (dao.read(),execute()).  If the
 			// SQL is generated in-page, you can use dao.queryParam()$ directly to create query parameters.
@@ -898,6 +898,7 @@
 
 			// pull out the : in date object values that can break the named param regex
 			str = reReplaceNoCase( str, "{ts '(.*?):(.*?)'}","{ts '\1#chr(765)#\2'}", "all" );
+			// now parse named params
 			str = reReplaceNoCase( str, ':+(\w[^\{]*?)(?=\s|\)|,)',':\1{}\2','all');
 			str = reReplaceNoCase( str, ':+(\w*?)\{(.*?)\}','$queryParam(%%%="##arguments.params.\1##",\2)$','all');
 
@@ -1217,40 +1218,46 @@
 		* I return the query as an array of structs.  Not super efficient with large recordsets,
 		* but returns a useable data set as apposed to the aweful job serializeJSON does with queries.
 		**/
-		public function queryToArray( required query qry ){
+		public function queryToArray( required query qry, any map ){
 			var queryArray = [];
-		    // using getMetaData instead of columnList to preserve case.
-		    // also, notice the hack to convert to a list then back to array. This is because getMetaData doesn't return real arrays (as far as CF is concerned)
-		    if ( isDefined('server') && ( structKeyExists(server,'railo') || structKeyExists(server,'lucee') ) ){
-		    	// var colList = listToArray( arrayToList( qry.getMetaData().getColumnLabels() ) );
-		    	var sqlString = qry.getSQL().getSQLString();
-		    	var tableName = reReplaceNoCase( sqlString, '.*?\sFROM\s(.*?)[\s|;].*', '\1', 'all' );
 
-		    	// writeDump([tableName,getMetaData(qry),qry.getSQL().getSQLString(),qry.getSQL()]);abort;
-		    	var test = new tabledef( tablename = tableName, dsn = getDSN() );
-		    	// Check for the tabledef object for this table, if it doesn't already exist, create it
+			// using getMetaData instead of columnList to preserve case.
+			// also, notice the hack to convert to a list then back to array. This is because getMetaData doesn't return real arrays (as far as CF is concerned)
+			if ( isDefined('server') && ( structKeyExists(server,'railo') || structKeyExists(server,'lucee') ) ){
+				var sqlString = qry.getSQL().getSQLString();
+				var tablesInQry = reMatchNoCase( "FROM\s+(\w+?)\s", sqlString );
+				var tableName = listLast( tablesInQry[ arrayLen( tablesInQry ) ], ' ' );
+
+				var test = new tabledef( tablename = tableName, dsn = getDSN() );
+				// Check for the tabledef object for this table, if it doesn't already exist, create it
 				if( !structKeyExists( variables.tabledefs, tableName) ){
 					variables.tabledefs[ tableName ] = new tabledef( tablename = tableName, dsn = getDSN() );
 				}
 
-		    	var colList = listToArray( structKeyList(test.gettablemeta().columns) );
-		    }else{
-		    	var colList = listToArray( arrayToList( qry.getMetaData().getColumnLabels() ) );
-		    }
-		    // If the query was an query of queries the "from" will not be a table and therefore
-		    // will not have returned any columns.  We'll just ignore the need for preserving case
-		    // and include the query columns as is assuming the source sql provides the desired case.
-		    if( !arrayLen( colList ) ){
-		    	colList = listToArray( structKeyList( qry ) );
-		    }
-			for( var i = 1; i lte qry.recordCount; i++ ){
-			    var cols = {};
-			    for( var col in colList ){
-			    	if( structKeyExists( qry, col ) ){
-			        	structAppend(cols, {'#col#' = qry[col][i] } );
-			        }
-			    }
-			    arrayAppend( queryArray, cols );
+				var colList = listToArray( structKeyList(test.gettablemeta().columns) );
+			}else{
+				var colList = listToArray( arrayToList( qry.getMetaData().getColumnLabels() ) );
+			}
+			// If the query was an query of queries the "from" will not be a table and therefore
+			// will not have returned any columns.  We'll just ignore the need for preserving case
+			// and include the query columns as is assuming the source sql provides the desired case.
+			if( !arrayLen( colList ) ){
+				colList = listToArray( structKeyList( qry ) );
+			}
+			var i = 0;
+			for( var rec in qry ){
+				i++;
+				var cols = {};
+				// if supplied, run query through map closure for custom processing
+				if( !isNull( map ) && isclosure( map ) ){
+					rec = map( row = rec, index = i, cols = listToArray( qry.columnList ) );
+				}
+				for( var col in colList ){
+					if( structKeyExists( rec, col ) ){
+						structAppend(cols, {'#col#' = rec[col] } );
+					}
+				}
+				arrayAppend( queryArray, cols );
 			}
 			return queryArray;
 		}
@@ -1258,8 +1265,8 @@
 		* I return the query as an JSON array of structs.  Not super efficient with large recordsets,
 		* but returns a useable data set as apposed to the aweful job serializeJSON does with queries.
 		**/
-		public function queryToJSON( required query qry ){
-			return serializeJSON( queryToArray( qry ) );
+		public function queryToJSON( required query qry, any map ){
+			return serializeJSON( queryToArray( argumentCollection:arguments ) );
 		}
 	</cfscript>
 	<!--- @TODO: convert to using new Query() --->
@@ -1434,7 +1441,7 @@
 		<cfset var exec = "" />
 		<cfset var LOCAL = structNew() />
 		<cfset var result = {}/>
- 		<cftry>
+		<cftry>
 
 				<!---
 					We need to parse the sql
@@ -1460,7 +1467,7 @@
 				<cfset LOCAL.tmpSQL = parseQueryParams( str = arguments.sql, params = params )>
 				<!--- Now we build the query --->
 
-			 	<cfquery datasource="#variables.dsn#" result="LOCAL.result">
+				<cfquery datasource="#variables.dsn#" result="LOCAL.result">
 					<!--- The first position of the tmpSQL list will be the first section of SQL code --->
 					#listFirst(preserveSingleQuotes(LOCAL.tmpSQL),chr(998))#
 					<!--- Now, we loop through the rest of the tmpSQL to build the cfqueryparams --->
@@ -1508,7 +1515,7 @@
 
 						</cfif>
 						<!--- Now anything after the closing > should be  --->
-					 	<cfif len(listLast(preserveSingleQuotes(LOCAL.idx),chr(999)))> #listLast(preserveSingleQuotes(LOCAL.idx),chr(999))# </cfif>
+						<cfif len(listLast(preserveSingleQuotes(LOCAL.idx),chr(999)))> #listLast(preserveSingleQuotes(LOCAL.idx),chr(999))# </cfif>
 					</cfloop>
 				</cfquery>
 
